@@ -1,0 +1,22 @@
+{
+  "name": "coc",
+  "authors": [
+    "Daniel dela1000@gmail.com"
+  ],
+  "description": "coc",
+  "main": "index.html",
+  "keywords": [
+    "coc",
+    "congress",
+    "contact"
+  ],
+  "license": "MIT",
+  "homepage": "countoncongress.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
