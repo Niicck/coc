@@ -46,12 +46,17 @@
                         <td>{{committee.chairman.name}}</td>
                         <td>{{committee.chairman.twitterHandle}}</td>
                         <td>
-                            <div class="custom-tweet-button align-center">
+                          <div>
+                            <textarea type="text" class="col-md-12">
+                              {{committee.chairman.twitterHandle}}
+                            </textarea>
+                            <div class="custom-tweet-button col-md-12 align-right margin-top-small">
                                 <a href="https://twitter.com/intent/tweet?text={{committee.chairman.twitterHandle}}" target="_blank" alt="Tweet this pen">
                                     <i class="btn-icon"></i>
                                     <span class="btn-text">Tweet</span>
                                 </a>
                             </div>
+                          </div>
                         </td>
                         <td>{{committee.chairman.phone}}</td>
                         <td><a>{{committee.chairman.onTheIssues}}</a></td>
