@@ -1,28 +1,26 @@
 //twitterApp is dependent on the myApp.services module
-var cocApp = angular.module('cocApp', [
-    'ngRoute',
-    'ngSanitize',
-    'ngTwitter'
+var app = angular.module('app', [
+    'ui.router',
+    'ngTwitter',
+    'ngLodash'
+
 ]);
 
 var sharedDirectives = angular.module('sharedDirectives', []);
 
-cocApp.controller('cocAppCtrl', function($scope) {
+app.controller('appCtrl', function($scope, lodash) {
 
 })
 
-// .config(function($routeProvider) {
-//     console.log("+++ 15 app.js Here")
-//     // Now set up the states
-//     $routeProvider
-//         .when('mainIndex', {
-//             url: '/',
-//             // templateUrl: 'root/index.html',
-//             controller: 'rootController',
-//             resolve: {
-//                 test: function() {
-//                     console.log("+++ 24 app.js Here")
-//                 }
-//             }
-//         })
-// })
+//Main route serving site template
+app.config(function($stateProvider, $urlRouterProvider) {
+    // Now set up the states
+    $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: 'app/root/index.html',
+            controller: 'rootController'
+        })
+
+    $urlRouterProvider.otherwise("/home");
+})

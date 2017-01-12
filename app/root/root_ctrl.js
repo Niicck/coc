@@ -1,7 +1,15 @@
-var cocApp = angular.module('cocApp');
+var app = angular.module('app');
 
-cocApp.controller('rootController', function($scope, rootServices) {
-    $scope.loginButton = function  () {
-        console.log("+++ 5 root_ctrl.js Here")
-    }
+app.controller('rootController', function($scope, $timeout, rootServices) {
+
+    var size = 0
+
+    $scope.committees = [];
+    _.forEach(rootServices, function (committee) {
+        $scope.committees.push(committee)
+        size++;
+    })
+
+    console.log("+++ 13 root_ctrl.js size: ", size)
+
 });

@@ -1,16 +1,15 @@
-cocApp.config(function($routeProvider) {
-    $routeProvider
+var app = angular.module('mainRoutes');
 
+app.config(function($stateProvider, $urlRouterProvider) {
+    console.log("+++ 15 app.js Here")
+    
     // Now set up the states
-    $routeProvider
-        .when('mainIndex', {
-            url: '/',
-            templateUrl: 'root/index.html',
-            controller: 'rootController',
-            resolve: {
-                test: function() {
-                    console.log("+++ 24 app.js Here")
-                }
-            }
+    $stateProvider
+        .state('home', {
+            url: '/home',
+            templateUrl: 'app/root/index.html',
+            controller: 'rootController'
         })
+
+    $urlRouterProvider.otherwise("/home");
 })

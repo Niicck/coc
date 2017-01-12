@@ -1,6 +1,63 @@
-<h1>C</h1>
-<div class="row">
-    <div class="col-xs-6">
-        <button ng-click="loginButton()" id="loginButton" type="button" class="btn btn-primary">Click</button>
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
+    <div class="container-fluid dark-blue white-text">
+        <div class="col-md-offset-2 col-md-10">
+            <h1 class="margin-top-immense margin-bottom-immense playfair-font">
+            Tweet to talk to your Congretional Committee Members
+          </h1>
+          <div class="col-md-12">
+            <p class="margin-bottom-immense">
+              "Congress in committee rooms is Congress at work"
+            </p>
+          </div>
+        </div>
+    </div>
+</nav>
+<div class="main-section">
+    <div>
+        <p>
+            Congress divides legislative, oversights and internal administration tasks among approximately 200 committees and sub-comittees. Senate and House members are assigned to a committee. They are responsible for becoming experts in the field, drafting legislation and representing the people on the committee orsub-committee topic.
+        </p>
+        <p>
+            We put together an overview of the committees with key contact information so that citizens can reach out and have a conversation with leaders and committee members on various topics.
+        </p>
+    </div>
+    <div>
+        <div ng-repeat="committeeGroups in committees">
+            <div class="margin-bottom-large">
+                <h2 class="playfair-font">{{committeeGroups[0].committeeName}}</h2>
+                <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3>
+                    <a class="fauna-font" href="{{committeeGroups[0].readMore}}" target="_blank">Read More</a>
+            </div>
+            <table class="table custom-table">
+                <thead>
+                    <tr class="tan header fauna-font">
+                        <th>Committee Role</th>
+                        <th>Member Name</th>
+                        <th>Twitter Handle</th>
+                        <th>Compose Tweet</th>
+                        <th>Phone Number</th>
+                        <th>On The Issues Link</th>
+                    </tr>
+                </thead>
+                <!-- <div ng-repeat="committee in committeeGroups"> -->
+                <tbody>
+                    <tr ng-repeat="committee in committeeGroups" class="offset-color open-sans-font">
+                        <td class="capitalize">{{committee.type}}</td>
+                        <td>{{committee.chairman.name}}</td>
+                        <td>{{committee.chairman.twitterHandle}}</td>
+                        <td>
+                            <div class="custom-tweet-button">
+                                <a href="https://twitter.com/intent/tweet?text={{committee.chairman.twitterHandle}}" target="_blank" alt="Tweet this pen">
+                                    <i class="btn-icon"></i>
+                                    <span class="btn-text">Tweet</span>
+                                </a>
+                            </div>
+                        </td>
+                        <td>{{committee.chairman.phone}}</td>
+                        <td><a>{{committee.chairman.onTheIssues}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
