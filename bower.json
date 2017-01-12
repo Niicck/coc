@@ -18,5 +18,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "ng-twitter-api": "^0.1.5",
+    "angular-route": "^1.6.1"
+  }
 }

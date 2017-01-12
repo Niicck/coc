@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="cocApp">
+
+<head>
+    <title>Count on Congress</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+
+
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js"></script>
+    <script src="bower_components/ng-twitter-api/dist/ng-twitter-api.min.js"></script>
+    <script src="bower_components/jsSHA/src/sha1.js"></script>
+
+
+
+    <script src="app/app.js"></script>
+    <script src="app/root/root_ctrl.js"></script>
+    <script src="app/root/root_services.js"></script>
+</head>
+
+<body ng-controller="cocAppCtrl">
+    <div class="container" ng-controller="rootController">
+        <h1>C</h1>
+        <div class="row">
+            <div class="col-xs-6">
+                <button ng-click="loginButton()" id="loginButton" type="button" class="btn btn-primary">Click</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
