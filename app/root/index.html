@@ -31,12 +31,12 @@
             <table class="table custom-table">
                 <thead>
                     <tr class="tan header fauna-font">
-                        <th>Committee Role</th>
-                        <th>Member Name</th>
-                        <th>Twitter Handle</th>
-                        <th>Compose Tweet</th>
-                        <th>Phone Number</th>
-                        <th>On The Issues Link</th>
+                        <th class="align-center">Committee Role</th>
+                        <th class="align-center">Member Name</th>
+                        <th class="align-center">Twitter Handle</th>
+                        <th class="align-center">Compose Tweet</th>
+                        <th class="align-center">Phone Number</th>
+                        <th class="align-center">On The Issues Link</th>
                     </tr>
                 </thead>
                 <!-- <div ng-repeat="committee in committeeGroups"> -->
@@ -46,7 +46,7 @@
                         <td>{{committee.chairman.name}}</td>
                         <td>{{committee.chairman.twitterHandle}}</td>
                         <td>
-                            <div class="custom-tweet-button">
+                            <div class="custom-tweet-button align-center">
                                 <a href="https://twitter.com/intent/tweet?text={{committee.chairman.twitterHandle}}" target="_blank" alt="Tweet this pen">
                                     <i class="btn-icon"></i>
                                     <span class="btn-text">Tweet</span>
