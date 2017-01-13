@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
     <div class="container-fluid dark-blue white-text">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-offset-2 col-md-7">
             <h1 class="margin-top-immense margin-bottom-immense playfair-font">
             Tweet to talk to your Congretional Committee Members
           </h1>
@@ -9,6 +9,14 @@
               "Congress in committee rooms is Congress at work"
             </p>
           </div>
+        </div>
+        <div class="col-md-1">
+            <div class="custom-login-button margin-top-large" ng-click="loginToTwitter();">
+                <a alt="Login to Twitter">
+                    <i class="btn-icon"></i>
+                    <span class="btn-text">Login</span>
+                </a>
+            </div>
         </div>
     </div>
 </nav>
@@ -44,17 +52,23 @@
                     <tr ng-repeat="committee in committeeGroups" class="offset-color open-sans-font">
                         <td class="capitalize">{{committee.type}}</td>
                         <td>{{committee.chairman.name}}</td>
-                        <td>{{committee.chairman.twitterHandle}}</td>
+                        <td>
+                            <a href="{{committee.chairman.twitterPage}}" target="_blank">{{committee.chairman.twitterHandle}}</a>
+                        </td>
                         <td>
                           <div>
-                            <textarea type="text" class="col-md-12">
-                              {{committee.chairman.twitterHandle}}
-                            </textarea>
-                            <div class="custom-tweet-button col-md-12 align-right margin-top-small">
-                                <a href="https://twitter.com/intent/tweet?text={{committee.chairman.twitterHandle}}" target="_blank" alt="Tweet this pen">
+                            <textarea class="col-md-12" autofocus  maxlength="140" ng-model="committee.chairman.message">{{committee.chairman.twitterHandle}} </textarea>
+                            <div>
+                            <div class="col-md-6">
+                                Left: {{140-committee.chairman.message.length}}
+                            </div>
+                            <div class="custom-tweet-button col-md-2 align-right margin-top-small">
+                                <a href="https://twitter.com/intent/tweet?text={{committee.chairman.twitterHandle}}" target="_blank" alt="Tweet this message">
                                     <i class="btn-icon"></i>
                                     <span class="btn-text">Tweet</span>
                                 </a>
+                            </div>
+                                
                             </div>
                           </div>
                         </td>
