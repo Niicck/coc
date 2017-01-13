@@ -1,17 +1,22 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
     <div class="container-fluid dark-blue white-text">
-        <div class="col-md-offset-2 col-md-7">
+        <div  class="col-md-3">
+          <div class="col-md-offset-6 col-md-6">
+            <img class="seal" src="/app/assets/seal.png"></img>
+          </div>
+        </div>
+        <div class="col-md-7">
             <h1 class="margin-top-immense margin-bottom-immense playfair-font">
             Tweet to talk to your Congretional Committee Members
           </h1>
-          <div class="col-md-12">
-            <p class="margin-bottom-immense">
-              "Congress in committee rooms is Congress at work"
-            </p>
-          </div>
+            <div class="col-md-12">
+                <p class="margin-bottom-immense">
+                    "Congress in committee rooms is Congress at work"
+                </p>
+            </div>
         </div>
         <div class="col-md-1">
-            <div class="custom-login-button margin-top-large" ng-click="loginToTwitter();">
+            <div class="custom-login-button" ng-click="loginToTwitter();">
                 <a alt="Login to Twitter">
                     <i class="btn-icon"></i>
                     <span class="btn-text">Login</span>
@@ -31,13 +36,20 @@
     </div>
     <div>
         <div ng-repeat="committeeGroups in committees">
-            <div class="margin-bottom-large">
+            <div class="margin-bottom-large col-md-9 no-padding">
                 <h2 class="playfair-font">{{committeeGroups[0].committeeName}}</h2>
                 <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3>
                     <a class="fauna-font" href="{{committeeGroups[0].readMore}}" target="_blank">Read More</a>
             </div>
             <table class="table custom-table">
+                <col width="140">
+                <col width="170">
+                <col width="170">
+                <col>
+                <col width="150">
+                <col width="170">
                 <thead>
+
                     <tr class="tan header fauna-font">
                         <th class="align-center">Committee Role</th>
                         <th class="align-center">Member Name</th>
@@ -47,7 +59,6 @@
                         <th class="align-center">On The Issues Link</th>
                     </tr>
                 </thead>
-                <!-- <div ng-repeat="committee in committeeGroups"> -->
                 <tbody>
                     <tr ng-repeat="committee in committeeGroups" class="offset-color open-sans-font">
                         <td class="capitalize">{{committee.type}}</td>
@@ -57,23 +68,30 @@
                         </td>
                         <td>
                           <div>
-                            <textarea class="col-md-12" autofocus  maxlength="140" ng-model="committee.chairman.message">{{committee.chairman.twitterHandle}} </textarea>
-                            <div>
-                            <div class="col-md-6">
-                                Left: {{140-committee.chairman.message.length}}
-                            </div>
-                            <div class="custom-tweet-button col-md-2 align-right margin-top-small">
-                                <a href="https://twitter.com/intent/tweet?text={{committee.chairman.twitterHandle}}" target="_blank" alt="Tweet this message">
+                            <textarea class="col-md-12 text-area" autofocus  maxlength="140" rows="5" cols="20" ng-model="committee.chairman.message" ng-trim="false">{{committee.chairman.twitterHandle}} </textarea>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 margin-top-small">
+                              
+                              <div class="small-font align-right">
+                                  Characters left: {{140-committee.chairman.message.length}}
+                              </div>
+                              
+
+                              <div class="custom-tweet-button align-right margin-top-small">
+                                  <a href="https://twitter.com/intent/tweet?text={{committee.chairman.message}}" target="_blank" alt="Tweet this message">
                                     <i class="btn-icon"></i>
                                     <span class="btn-text">Tweet</span>
-                                </a>
-                            </div>
-                                
+                                  </a>
+                              </div>
                             </div>
                           </div>
                         </td>
-                        <td>{{committee.chairman.phone}}</td>
-                        <td><a>{{committee.chairman.onTheIssues}}</a></td>
+                        <td class="align-center">{{committee.chairman.phone}}</td>
+                        <td class="align-center">
+                          <a href="{{committee.chairman.onTheIssues}}" target="_blank">Learn More
+                          </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

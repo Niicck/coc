@@ -1,7 +1,6 @@
 //twitterApp is dependent on the myApp.services module
 var app = angular.module('app', [
     'ui.router',
-    'ngTwitter',
     'ngLodash'
 
 ]);
@@ -16,11 +15,11 @@ app.controller('appCtrl', function($scope, lodash) {
 app.config(function($stateProvider, $urlRouterProvider) {
     // Now set up the states
     $stateProvider
-        .state('home', {
-            url: '/home',
+        .state('/', {
+            url: '/',
             templateUrl: 'app/root/index.html',
             controller: 'rootController'
         })
 
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
 })

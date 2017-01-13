@@ -3,30 +3,42 @@ var path = require('path');
 var logger = require('morgan');
 var cors = require('cors')
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 // Twitter integration
 var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
-    
+    consumerKey: '',
+    consumerSecret: '',
     callback: 'http://countoncongress.org'
 });
 
 var app = express();
 module.exports.app = app;
 
+app.use(session({
+ secret: 'kmddlr17',
+ resave: true,
+ saveUninitialized: false,
+ cookie: {maxAge: 10000000*60*60}
+}));
+
 //middleware
-app.use(cors())
+// app.use(cors())
+// app.options('*', cors())
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//Use cors
-app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, makertrails-token');
-    next();
-});
+// //Use cors
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, countoncongress');
+//     next();
+// });
+
 
 // Serving static files from main directory.
 app.use('/', express.static(__dirname));
@@ -45,18 +57,16 @@ app.get('/', function(request, response) {
 
 // Reroute to app
 app.get('/twitterlogin', function(request, response) {
+    console.log("+++ 53 server.js AT ROUTE")
     twitter.getRequestToken(function(error, requestToken, requestTokenSecret, results) {
         if (error) {
             console.log("Error getting OAuth request token : " + error);
             response.sendStatus(404)
         } else {
-            var requestTokenReceived = requestToken;
-            console.log("+++ 56 server.js requestTokenReceived: ", requestTokenReceived)
-            var tokenSecretReceived = requestTokenSecret;
-            console.log("+++ 57 server.js tokenSecretReceived: ", tokenSecretReceived)
-            console.log("+++ 54 server.js results: ", results);
-            // Store token and tokenSecret somewhere, you'll need them later; redirect user 
-            response.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + requestTokenReceived)
+            request.session.twitterRequestToken = requestToken;
+            request.session.twitterRequestTokenSecret = requestTokenSecret;
+            
+            response.json(200, { "requestToken": requestToken,"requestTokenSecret" : requestTokenSecret,"results" : results});
         }
     });
 });

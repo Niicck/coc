@@ -39,7 +39,8 @@
 .fauna-font {
     font-family: 'Fauna One', serif;
 }
-.open-sans-font{
+
+.open-sans-font {
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -47,7 +48,9 @@ p {
     font-family: 'Fauna One', serif;
 }
 
+
 /*TYPOGRAPHY*/
+
 .align-center {
     text-align: center;
 }
@@ -67,6 +70,23 @@ p {
 .white-text {
     color: white;
 }
+
+.small-font {
+    font-size: 10px;
+}
+
+.medium-font {
+    font-size: 12px;
+}
+
+.large-font {
+    font-size: 14px;
+}
+
+h1::first-letter { 
+    font-size: 125%;
+}
+
 
 /*COLORS - Pallette from https://color.adobe.com/28X-Presidential-Poster-color-theme-7962511*/
 
@@ -101,12 +121,29 @@ p {
 
 /*MAIN SECTION*/
 
+.seal {
+    margin: 20px;
+    width: 121px;
+    height: 121px;
+}
+
 .main-section {
-    margin-top: 170px;
+    margin-top: 180px;
 }
 
 .main-table {
     width: 100%
+}
+
+.text-area {
+    height: 75px;
+    ;
+    overflow: visible;
+}
+
+.footer {
+    height: 60px;
+    width: 100%;
 }
 
 
@@ -119,6 +156,10 @@ body {
 
 p {
     line-height: 1.6;
+}
+
+.custom-login-button {
+    margin-top: 52px;
 }
 
 .custom-login-button a {
@@ -175,8 +216,6 @@ p {
     font-size: 16px;
 }
 
-
-
 .custom-tweet-button a {
     position: relative;
     display: inline-block;
@@ -232,18 +271,6 @@ p {
 
 
 /*TABLES*/
-
-
-/*body {
-  font-family: "Helvetica Neue", Helvetica, Arial;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  color: #3b3b3b;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  background: #2b2b2b;
-}*/
 
 .table {
     margin: 0 0 40px 0;
@@ -581,4 +608,3 @@ p {
 .no-bottom-margin {
     margin-bottom: 0;
 }
-
