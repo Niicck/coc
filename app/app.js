@@ -20,10 +20,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/root/index.html',
             controller: 'rootController',
             resolve: {
-                twitterData: function(rootServices, $rootScope) {
+                twitterData: function(rootServices, $rootScope, $window) {
                     rootServices.userData()
                         .then(function(result) {
                             $rootScope.twitterData = result.data.twitterData
+                            window.localStorage.setItem('countoncongress-username', $rootScope.twitterData.twitterUsername);
+                            window.localStorage.setItem('countoncongress-userSignedIn', $rootScope.twitterData.signedIn);
                         })
                 }
             }

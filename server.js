@@ -4,14 +4,16 @@ var logger = require('morgan');
 var cors = require('cors')
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var keys = require('express-session');
+var secrets = require('./secrets/secrets.js');
 
 // Twitter integration
 var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
-    consumerKey: '',
-    consumerSecret: '',
+    consumerKey: secrets.consumerKey,
+    consumerSecret: secrets.consumerSecret,
     callback: 'http://localhost:8080/twitterAuthenticated'
-        // callback: 'http://countoncongress.org'
+    // callback: 'http://countoncongress.org'
 });
 
 var app = express();

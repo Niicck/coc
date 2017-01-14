@@ -9,9 +9,11 @@ app.controller('rootController', function($scope, $window, rootServices, commSer
         $scope.committees.push(committee)
         size++;
     })
-
-    $scope.userData = $rootScope.twitterData;
-
+    if($window.localStorage["countoncongress-userSignedIn"]){
+        $scope.userData = $rootScope.twitterData;
+    }
+    console.log("+++ 14 root_ctrl.js $window.localStorage.countoncongress-userSignedIn: ", $window.localStorage["countoncongress-userSignedIn"])
+    console.log("+++ 16 root_ctrl.js $window.localStorage.countoncongress-userSignedIn.countoncongress-username: ", $window.localStorage["countoncongress-username"])
 
     $scope.loginToTwitter = function() {
         rootServices.loginToTwitter()
@@ -27,7 +29,6 @@ app.controller('rootController', function($scope, $window, rootServices, commSer
 
             })
     }
-
 
     $scope.sendTweet = function(message, index){
         rootServices.sendTweet(message)
