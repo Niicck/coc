@@ -23,9 +23,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 twitterData: function(rootServices, $rootScope, $window) {
                     rootServices.userData()
                         .then(function(result) {
-                            $rootScope.twitterData = result.data.twitterData
-                            window.localStorage.setItem('countoncongress-username', $rootScope.twitterData.twitterUsername);
-                            window.localStorage.setItem('countoncongress-userSignedIn', $rootScope.twitterData.signedIn);
+                            if(result.data.twitterData){
+                                $rootScope.twitterData = result.data.twitterData
+                                window.localStorage.setItem('countoncongress-username', $rootScope.twitterData.twitterUsername);
+                                window.localStorage.setItem('countoncongress-userSignedIn', $rootScope.twitterData.signedIn);
+                            }else{
+                                window.localStorage.setItem('countoncongress-username', null);
+                                window.localStorage.setItem('countoncongress-userSignedIn', false);
+                            }
                         })
                 }
             }

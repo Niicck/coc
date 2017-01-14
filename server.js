@@ -1,11 +1,11 @@
-"use strict";
-
 var express = require('express');
 var path = require('path');
+var logger = require('morgan');
 var cors = require('cors')
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var keys = require('express-session');
+var router = require('./backend/secrets.js');
 var router = require('./backend/routes.js');
 
 var app = express();
@@ -17,18 +17,17 @@ app.use(session({
     saveUninitialized: false,
 }));
 
-app.set('port', process.env.PORT || 8080);
-
 //middleware
 app.use(cors())
+    // app.options('*', cors())
+app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Serving static files from main directory.
 app.use('/', express.static(__dirname));
-
-// Set up our routes
+// Set up backend routes
 app.use("/", router);
 
 app.listen(app.get("port"));

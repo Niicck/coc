@@ -12,15 +12,15 @@ var twitter = new twitterAPI({
         // callback: 'http://countoncongress.org/twitterAuthenticated'
 });
 
-// var OAuth = require('oauth').OAuth;
-// var oAuth;
-// oAuth = new OAuth(
-//     "http://twitter.com/oauth/request_token",
-//     "http://twitter.com/oauth/access_token",
-//     secrets.consumerKey,
-//     secrets.consumerSecret,
-//     "1.0", null, "HMAC-SHA1"
-// );
+var OAuth = require('oauth').OAuth;
+var oAuth;
+oAuth = new OAuth(
+    "http://twitter.com/oauth/request_token",
+    "http://twitter.com/oauth/access_token",
+    secrets.consumerKey,
+    secrets.consumerSecret,
+    "1.0A", null, "HMAC-SHA1"
+);
 
 //Routes
 router.get('/', function(request, response) {
@@ -90,29 +90,12 @@ router.post('/sendTweet', function(request, response) {
     console.log("+++ 120 server.js request.body: ", request.body)
 
 
-    // oAuth.post(
-    //     "https://api.twitter.com/1.1/statuses/update.json",
-    //     request.session.twitterAccess.accessToken, 
-    //     request.session.twitterAccess.accessTokenSecret,
-    //     { "status": request.body },
-    //     function(error, data) {
-    //         if (error) {
-    //             console.log("+++ 122 server.js error: ", error)
-    //             response.status(error.statusCode).send(error)
-    //         } else {
-    //             response.status(200).send(data)
-    //         }
-    //     }
-    // );
-
-    twitter.statuses("update", {
-            status: request.body
-        },
-        request.session.twitterAccess.accessToken,
+    oAuth.post(
+        "https://api.twitter.com/1.1/statuses/update.json",
+        request.session.twitterAccess.accessToken, 
         request.session.twitterAccess.accessTokenSecret,
-        // secrets.accessToken,
-        // secrets.accessTokenSecret,
-        function(error, data, res) {
+        { "status": request.body },
+        function(error, data) {
             if (error) {
                 console.log("+++ 122 server.js error: ", error)
                 response.status(error.statusCode).send(error)
@@ -121,5 +104,23 @@ router.post('/sendTweet', function(request, response) {
             }
         }
     );
+
+    // twitter.statuses("update", {
+    //         status: request.body
+    //     },
+    //     request.session.twitterAccess.accessToken,
+    //     request.session.twitterAccess.accessTokenSecret,
+    //     // secrets.accessToken,
+    //     // secrets.accessTokenSecret,
+    //     function(error, data, res) {
+    //         if (error) {
+    //             console.log("+++ 122 server.js error: ", error)
+    //             response.status(error.statusCode).send(error)
+    //         } else {
+    //             response.status(200).send(data)
+    //         }
+    //     }
+    // );
 })
+
 module.exports = router;
