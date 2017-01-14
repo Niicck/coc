@@ -15,7 +15,7 @@
                 </p>
             </div>
         </div>
-        <div class="col-md-1">
+        <div>
             <div class="custom-login-button pointer" ng-click="loginToTwitter();" ng-show="!userData.signedIn">
                 <a alt="Login to Twitter">
                     <i class="btn-icon"></i>
@@ -84,8 +84,8 @@
                               </div>
                               
 
-                              <div class="custom-tweet-button align-right margin-top-small">
-                                  <a href="https://twitter.com/intent/tweet?text={{committee.chairman.message}}" target="_blank" alt="Tweet this message">
+                              <div class="custom-tweet-button align-right margin-top-small" ng-click="sendTweet(committee.chairman.message, $index)">
+                                  <a alt="Tweet this message">
                                     <i class="btn-icon"></i>
                                     <span class="btn-text">Tweet</span>
                                   </a>

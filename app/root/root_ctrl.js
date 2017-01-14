@@ -11,7 +11,7 @@ app.controller('rootController', function($scope, $window, rootServices, commSer
     })
 
     $scope.userData = $rootScope.twitterData;
-    console.log("+++ 14 root_ctrl.js $scope.userData: ", $scope.userData)
+
 
     $scope.loginToTwitter = function() {
         rootServices.loginToTwitter()
@@ -29,7 +29,10 @@ app.controller('rootController', function($scope, $window, rootServices, commSer
     }
 
 
-    // $scope.$watch('committees', function() {
-    //     console.log("+++ 17 root_ctrl.js $scope.committees[0][0].message: ", $scope.committees[0][0].chairman.message)
-    // }, true)
+    $scope.sendTweet = function(message, index){
+        rootServices.sendTweet(message)
+            .then(function(result) {
+                console.log("+++ 35 root_ctrl.js result: ", result)
+            })
+    }
 });

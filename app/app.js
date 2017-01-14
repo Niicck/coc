@@ -7,8 +7,8 @@ var app = angular.module('app', [
 
 var sharedDirectives = angular.module('sharedDirectives', []);
 
-app.controller('appCtrl', function($scope, lodash) {
-
+app.controller('appCtrl', function($scope, lodash, $rootScope) {
+    $rootScope.serverUrl = 'http://localhost:8080'
 })
 
 //Main route serving site template

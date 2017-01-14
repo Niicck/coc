@@ -1,15 +1,24 @@
 var app = angular.module('app');
 
-app.factory('rootServices', function($http) {
+app.factory('rootServices', function($http, $rootScope) {
     var services = {};
 
-    services.loginToTwitter = function () {
-        console.log("+++ 7 root_services.js loginToTwitter")
-        return $http.get('http://localhost:8080/twitterlogin')
+    services.userData = function () {
+      return $http.get($rootScope.serverUrl + '/twitterData')
     }
 
-    services.userData = function () {
-      return $http.get('http://localhost:8080/twitterData')
+    services.loginToTwitter = function () {
+        return $http.get($rootScope.serverUrl + '/twitterlogin')
+    }
+
+    services.sendTweet = function(message) {
+        return $http ({
+          method: 'POST',
+          url: $rootScope.serverUrl + '/sendTweet',
+          data: {
+            tweet: message
+          }
+        })
     }
 
     return services;

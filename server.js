@@ -53,12 +53,12 @@ app.get('/', function(request, response) {
     if (request.session.twitterData && request.session.twitterData.signedIn) {
         console.log("server.js - Serve index page - User Signed in")
         console.log("+++ 54 server.js request.session.twitterData: ", request.session.twitterData)
-        twitter.verifyCredentials(request.session.twitterData.accessToken, request.session.twitterData.accessTokenSecret, function(error, data, res) {
+        twitter.verifyCredentials(request.session.twitterAccess.accessToken, request.session.twitterAccess.accessTokenSecret, function(error, data, res) {
             if (error) {
                 console.log("+++ 56 server.js error: ", error)
             } else {
-                    response.status(202)
-                        .sendFile(path.resolve("app/index.html"));
+                response.status(202)
+                    .sendFile(path.resolve("app/index.html"));
             };
         })
     } else {
@@ -82,8 +82,9 @@ app.get('/twitterlogin', function(request, response) {
                 request.session.twitterData.signedIn = false;
                 response.sendStatus(404)
             } else {
-                request.session.twitterData.twitterRequestToken = requestToken;
-                request.session.twitterData.twitterRequestTokenSecret = requestTokenSecret;
+                request.session.twitterRequest = {}
+                request.session.twitterRequest.twitterRequestToken = requestToken;
+                request.session.twitterRequest.twitterRequestTokenSecret = requestTokenSecret;
                 request.session.twitterData.signedIn = true;
                 response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
             }
@@ -92,12 +93,13 @@ app.get('/twitterlogin', function(request, response) {
 });
 
 app.get('/twitterAuthenticated', function(request, response) {
-    twitter.getAccessToken(request.session.twitterData.twitterRequestToken, request.session.twitterData.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+    twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
             console.log(error);
         } else {
-            request.session.twitterData.accessToken = accessToken;
-            request.session.twitterData.accessTokenSecret = accessTokenSecret;
+            request.session.twitterAccess = {}
+            request.session.twitterAccess.accessToken = accessToken;
+            request.session.twitterAccess.accessTokenSecret = accessTokenSecret;
             request.session.twitterData.twitterUsername = results.screen_name;
             console.log("+++ 82 server.js results: ", results)
             response.redirect('/')
@@ -106,7 +108,25 @@ app.get('/twitterAuthenticated', function(request, response) {
 });
 
 app.get('/twitterdata', function(request, response) {
-        response.status(200).send({
-            twitterData: request.session.twitterData
-        })
+    response.status(200).send({
+        twitterData: request.session.twitterData
+    })
+})
+
+app.post('/sendTweet', function(request, response) {
+    console.log("+++ 115 server.js request: ", request)
+    twitter.statuses("update", {
+            status: request.body.message
+        },
+        request.session.twitterAccess.accessToken,
+        request.session.twitterAccess.accessTokenSecret,
+        function(error, data, res) {
+            if (error) {
+                console.log("+++ 122 server.js error: ", error)
+                response.status(404).send(error)
+            } else {
+                response.status(200).send(data)
+            }
+        }
+    );
 })
