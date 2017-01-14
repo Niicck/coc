@@ -83,7 +83,7 @@ p {
     font-size: 14px;
 }
 
-h1::first-letter { 
+h1::first-letter {
     font-size: 125%;
 }
 
@@ -128,7 +128,7 @@ h1::first-letter {
 }
 
 .main-section {
-    margin-top: 180px;
+    margin-top: 210px;
 }
 
 .main-table {
@@ -147,7 +147,7 @@ h1::first-letter {
 }
 
 .pointer {
-        cursor: pointer;
+    cursor: pointer;
 }
 
 
