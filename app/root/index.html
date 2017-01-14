@@ -16,10 +16,16 @@
             </div>
         </div>
         <div class="col-md-1">
-            <div class="custom-login-button" ng-click="loginToTwitter();">
+            <div class="custom-login-button pointer" ng-click="loginToTwitter();" ng-show="!userData.signedIn">
                 <a alt="Login to Twitter">
                     <i class="btn-icon"></i>
                     <span class="btn-text">Login</span>
+                </a>
+            </div>
+            <div class="custom-login-button" ng-show="userData.signedIn">
+                <a alt="Logged in">
+                    <i class="btn-icon"></i>
+                    <span class="btn-text">Hi {{userData.twitterUsername}}</span>
                 </a>
             </div>
         </div>

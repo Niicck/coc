@@ -18,7 +18,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('/', {
             url: '/',
             templateUrl: 'app/root/index.html',
-            controller: 'rootController'
+            controller: 'rootController',
+            resolve: {
+                twitterData: function(rootServices, $rootScope) {
+                    rootServices.userData()
+                        .then(function(result) {
+                            $rootScope.twitterData = result.data.twitterData
+                        })
+                }
+            }
         })
 
     $urlRouterProvider.otherwise("/");

@@ -8,5 +8,9 @@ app.factory('rootServices', function($http) {
         return $http.get('http://localhost:8080/twitterlogin')
     }
 
+    services.userData = function () {
+      return $http.get('http://localhost:8080/twitterData')
+    }
+
     return services;
   })

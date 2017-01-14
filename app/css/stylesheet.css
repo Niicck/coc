@@ -146,6 +146,10 @@ h1::first-letter {
     width: 100%;
 }
 
+.pointer {
+        cursor: pointer;
+}
+
 
 /*CUSTOM TWEET BUTTON*/
 
@@ -182,7 +186,6 @@ p {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    cursor: pointer;
     overflow: hidden;
 }
 
