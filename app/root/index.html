@@ -1,0 +1,111 @@
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
+    <div class="container-fluid dark-blue white-text">
+        <div class="col-md-3">
+            <div class="col-md-offset-6 col-md-6">
+                <img class="seal" src="/app/assets/seal.png"></img>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <h1 class="margin-top-immense margin-bottom-immense playfair-font">
+            Tweet to talk to your Congretional Committee Members
+          </h1>
+            <div class="col-md-12">
+                <p class="margin-bottom-immense">
+                    "Congress in committee rooms is Congress at work"
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="custom-login-button" ng-click="loginToTwitter();" ng-show="!userData.signedIn">
+                <a alt="Login to Twitter" class="pointer">
+                    <i class="btn-icon"></i>
+                    <span class="btn-text">Login</span>
+                </a>
+            </div>
+            <div class="custom-login-button" ng-show="userData.signedIn">
+                <a alt="Logged in">
+                    <i class="btn-icon"></i>
+                    <span class="btn-text">Hi {{userData.twitterUsername}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="main-section">
+    <div>
+        <p>
+            Congress divides legislative, oversights and internal administration tasks among approximately 200 committees and sub-comittees. Senate and House members are assigned to a committee. They are responsible for becoming experts in the field, drafting legislation and representing the people on the committee orsub-committee topic.
+        </p>
+        <p>
+            We put together an overview of the committees with key contact information so that citizens can reach out and have a conversation with leaders and committee members on various topics.
+        </p>
+    </div>
+    <div>
+        <div ng-repeat="committeeGroups in committees">
+            <div class="margin-bottom-large col-md-9 no-padding">
+                <h2 class="playfair-font">{{committeeGroups[0].committeeName}}</h2>
+                <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3>
+                    <a class="fauna-font" href="{{committeeGroups[0].readMore}}" target="_blank">Read More</a>
+            </div>
+            <table class="table custom-table">
+                <col width="140">
+                <col width="170">
+                <col width="170">
+                <col>
+                <col width="150">
+                <col width="170">
+                <thead>
+
+                    <tr class="tan header fauna-font">
+                        <th class="align-center">Committee Role</th>
+                        <th class="align-center">Member Name</th>
+                        <th class="align-center">Twitter Handle</th>
+                        <th class="align-center">Compose Tweet</th>
+                        <th class="align-center">Phone Number</th>
+                        <th class="align-center">On The Issues Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="committee in committeeGroups" class="offset-color open-sans-font">
+                        <td class="capitalize">{{committee.type}}</td>
+                        <td>{{committee.chairman.name}}</td>
+                        <td>
+                            <a href="{{committee.chairman.twitterPage}}" target="_blank">{{committee.chairman.twitterHandle}}</a>
+                        </td>
+                        <td>
+                          <div>
+                            <textarea class="col-md-12 text-area" autofocus  maxlength="140" rows="5" cols="20" ng-model="committee.chairman.message" ng-trim="false">{{committee.chairman.twitterHandle}} </textarea>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 margin-top-small">
+                              
+                              <div class="small-font align-right">
+                                  Characters left: {{140-committee.chairman.message.length}}
+                              </div>
+                              <div class="custom-tweet-button align-right margin-top-small" ng-click="sendTweet(committee.chairman.message, $index)" ng-show="userData.signedIn">
+                                <a alt="Tweet this message" class="pointer">
+                                  <i class="btn-icon"></i>
+                                  <span class="btn-text">Tweet</span>
+                                </a>
+                              </div>
+
+                              <div class="custom-tweet-button align-right margin-top-small" ng-click="loginToTwitter();" ng-show="!userData.signedIn">
+                                <a alt="Login to Twitter" class="pointer">
+                                    <i class="btn-icon"></i>
+                                    <span class="btn-text">Login</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-center">{{committee.chairman.phone}}</td>
+                        <td class="align-center">
+                          <a href="{{committee.chairman.onTheIssues}}" target="_blank">Learn More
+                          </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

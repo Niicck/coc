@@ -1,3 +1,11 @@
+# Dependecy Folders #
+######################
+bower_components/
+node_modules/
+
+backend/secrets.js
+
+
 # OS generated files #
 ######################
 .DS_Store
