@@ -92,9 +92,8 @@ router.post('/sendTweet', function(request, response) {
 
     oAuth.post(
         "https://api.twitter.com/1.1/statuses/update.json",
-        request.session.twitterAccess.accessToken, 
-        request.session.twitterAccess.accessTokenSecret,
-        { "status": request.body },
+        request.session.twitterAccess.accessToken,
+        request.session.twitterAccess.accessTokenSecret, { "status": request.body },
         function(error, data) {
             if (error) {
                 console.log("+++ 122 server.js error: ", error)
@@ -123,4 +122,16 @@ router.post('/sendTweet', function(request, response) {
     // );
 })
 
-module.exports = router;
+router.get('/logout', function(request, response) {
+    request.session.destroy();
+    if (!request.session) {
+        console.log("Logged out")
+        response.sendStatus(200)
+    } else {
+        console.log("Not logged out")
+        response.sendStatus(400)
+    };
+
+})
+
+module.exports = router

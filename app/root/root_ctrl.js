@@ -36,9 +36,17 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
     }
 
     $scope.logout = function() {
-        console.log("+++ 41 root_ctrl.js Here")
         function onYes() {
-            console.log("+++ 41 root_ctrl.js INSIDE")
+            rootServices.logout()
+                .then(function(result) {
+                    if(result.status){
+                        delete $rootScope.twitterData;
+                        $scope.userData = {};
+                        $scope.userData.signedIn = false;
+                        window.localStorage.setItem('countoncongress-username', null);
+                        window.localStorage.setItem('countoncongress-userSignedIn', false);
+                    }
+                })
         }
         confirm.initialize('Are you sure you want to logout?', onYes);
     }

@@ -28,7 +28,7 @@
                     <span class="btn-text">Hi {{userData.twitterUsername}}</span>
                 </a>
             </div> -->
-            <div class="custom-login-button" ng-show="!userData.signedIn" ng-click="logout()">
+            <div class="custom-login-button" ng-show="userData.signedIn" ng-click="logout()">
                 <a alt="Logged in" class="pointer">
                     <i class="btn-icon"></i>
                     <span class="btn-text">Logout</span>
