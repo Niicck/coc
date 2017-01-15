@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('rootController', function($scope, $window, rootServices, commServices, $rootScope) {
+app.controller('rootController', function($scope, $rootScope, $window, rootServices, commServices, confirm) {
 
     var size = 0
 
@@ -12,8 +12,6 @@ app.controller('rootController', function($scope, $window, rootServices, commSer
     if($window.localStorage["countoncongress-userSignedIn"]){
         $scope.userData = $rootScope.twitterData;
     }
-    console.log("+++ 14 root_ctrl.js $window.localStorage.countoncongress-userSignedIn: ", $window.localStorage["countoncongress-userSignedIn"])
-    console.log("+++ 16 root_ctrl.js $window.localStorage.countoncongress-userSignedIn.countoncongress-username: ", $window.localStorage["countoncongress-username"])
 
     $scope.loginToTwitter = function() {
         rootServices.loginToTwitter()
@@ -35,6 +33,14 @@ app.controller('rootController', function($scope, $window, rootServices, commSer
             .then(function(result) {
                 console.log("+++ 35 root_ctrl.js result: ", result)
             })
+    }
+
+    $scope.logout = function() {
+        console.log("+++ 41 root_ctrl.js Here")
+        function onYes() {
+            console.log("+++ 41 root_ctrl.js INSIDE")
+        }
+        confirm.initialize('Are you sure you want to logout?', onYes);
     }
 });
 

@@ -1,7 +1,10 @@
 //twitterApp is dependent on the myApp.services module
 var app = angular.module('app', [
     'ui.router',
-    'ngLodash'
+    'ngLodash',
+    'ngAnimate',
+    'ngTouch',
+    'ui.bootstrap'
 
 ]);
 
