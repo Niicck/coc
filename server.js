@@ -19,11 +19,9 @@ app.use(session({
 
 //middleware
 app.use(cors())
-    // app.options('*', cors())
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 // Serving static files from main directory.
 app.use('/', express.static(__dirname));

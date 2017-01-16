@@ -1,3 +1,4 @@
+<div uib-alert ng-repeat="alert in alerts" ng-class="'alert-' + ('warning')" close="closeAlert($index)" dismiss-on-timeout="1000">{{alert.msg}}</div>
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
     <div class="container-fluid dark-blue white-text">
         <div class="col-md-3">
@@ -22,13 +23,7 @@
                     <span class="btn-text">Login</span>
                 </a>
             </div>
-            <!-- <div class="custom-login-button" ng-show="userData.signedIn">
-                <a alt="Logged in">
-                    <i class="btn-icon"></i>
-                    <span class="btn-text">Hi {{userData.twitterUsername}}</span>
-                </a>
-            </div> -->
-            <div class="custom-login-button" ng-show="userData.signedIn" ng-click="logout()">
+            <div class="custom-login-button" ng-click="logout()" ng-show="userData.signedIn">
                 <a alt="Logged in" class="pointer">
                     <i class="btn-icon"></i>
                     <span class="btn-text">Logout</span>
@@ -88,7 +83,7 @@
                               <div class="small-font align-right">
                                   Characters left: {{140-committee.chairman.message.length}}
                               </div>
-                              <div class="custom-tweet-button align-right margin-top-small" ng-click="sendTweet(committee.chairman.message, $index)" ng-show="userData.signedIn">
+                              <div class="custom-tweet-button align-right margin-top-small" ng-click="sendTweet(committee.chairman.message, $parent.$index, $index)" >
                                 <a alt="Tweet this message" class="pointer">
                                   <i class="btn-icon"></i>
                                   <span class="btn-text">Tweet</span>

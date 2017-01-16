@@ -2,12 +2,9 @@ var app = angular.module('app');
 
 app.controller('rootController', function($scope, $rootScope, $window, rootServices, commServices, confirm) {
 
-    var size = 0
-
     $scope.committees = [];
     _.forEach(commServices, function(committee) {
         $scope.committees.push(committee)
-        size++;
     })
     if($window.localStorage["countoncongress-userSignedIn"]){
         $scope.userData = $rootScope.twitterData;
@@ -21,17 +18,22 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
                 } else{
                     services.userData()
                         then(function (twitterData) {
-                            console.log("+++ 21 root_ctrl.js twitterData: ", twitterData)
+                            $rootScope.twitterData = twitterData.data.twitterData;
                         })
                 }
 
             })
     }
 
-    $scope.sendTweet = function(message, index){
+    $scope.sendTweet = function(message, committeeIndex, memberIndex){
+            
         rootServices.sendTweet(message)
             .then(function(result) {
-                console.log("+++ 35 root_ctrl.js result: ", result)
+                if(result.status === 200){
+                    $scope.committees[committeeIndex][memberIndex].chairman.message = $scope.committees[committeeIndex][memberIndex].chairman.twitterHandle + " ";
+                } else{
+                  console.log("+++ 35 root_ctrl.js ERROR")
+                };
             })
     }
 
