@@ -8,22 +8,10 @@ var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
-    callback: 'http://localhost:8080/twitterAuthenticated'
-    // callback: 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
+    // callback: 'http://localhost:8080/twitterAuthenticated'
+        callback: 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
         // callback: 'http://countoncongress.org/twitterAuthenticated'
 });
-
-var OAuth = require('oauth').OAuth;
-var oAuth;
-oAuth = new OAuth(
-    "http://twitter.com/oauth/request_token",
-    "http://twitter.com/oauth/access_token",
-    secrets.consumerKey,
-    secrets.consumerSecret,
-    "1.0A", null, "HMAC-SHA1"
-);
-
-
 //Routes
 //Home route
 router.get('/', function(request, response) {
@@ -45,10 +33,8 @@ router.get('/', function(request, response) {
             .sendFile(path.resolve("app/index.html"));
     }
 });
-
 //login to Twitter route
 router.get('/twitterlogin', function(request, response) {
-
     if (request.session.twitterData && request.session.twitterData.signedIn) {
         response.redirect('/')
     } else {
@@ -68,7 +54,6 @@ router.get('/twitterlogin', function(request, response) {
         });
     }
 });
-
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
@@ -83,32 +68,27 @@ router.get('/twitterAuthenticated', function(request, response) {
         }
     });
 });
-
 //Get twitter data for frontend verification
 router.get('/twitterdata', function(request, response) {
     response.status(200).send({
         twitterData: request.session.twitterData
     })
-})
-
+});
 //Send tweet route
 router.post('/sendTweet', function(request, response) {
-    oAuth.post(
-            "https://api.twitter.com/1.1/statuses/update.json",
-            request.session.twitterAccess.accessToken,
-            request.session.twitterAccess.accessTokenSecret, 
-            { "status": request.body.tweet },
-            function(error, data) {
-                if (error) {
-                    console.log("+++ 122 server.js error: ", error.statusCode)
-                    response.status(error.statusCode).send(error)
-                } else {
-                    response.status(200).send(data)
-                }
+    twitter.statuses("update", 
+        { status: request.body.tweet },
+        request.session.twitterAccess.accessToken,
+        request.session.twitterAccess.accessTokenSecret,
+        function(error, data, res) {
+            if (error) {
+                response.status(error.statusCode).send(error)
+            } else {
+                response.status(200).send(data)
             }
-        );
-
-})
+        }
+    );
+});
 //Logout from our app. App still has access in the user's twitter apps, but our sessions is destroyed.
 router.get('/logout', function(request, response) {
     request.session.destroy();
