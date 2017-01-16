@@ -87,39 +87,21 @@ router.get('/twitterdata', function(request, response) {
 })
 
 router.post('/sendTweet', function(request, response) {
-    console.log("+++ 120 server.js request.body: ", request.body)
-
 
     oAuth.post(
         "https://api.twitter.com/1.1/statuses/update.json",
         request.session.twitterAccess.accessToken,
-        request.session.twitterAccess.accessTokenSecret, { "status": request.body },
+        request.session.twitterAccess.accessTokenSecret, 
+        { "status": "Need somebody to love me again and again and LAST TIME" },
         function(error, data) {
             if (error) {
                 console.log("+++ 122 server.js error: ", error)
-                response.status(error.statusCode).send(error)
             } else {
                 response.status(200).send(data)
             }
         }
     );
 
-    // twitter.statuses("update", {
-    //         status: request.body
-    //     },
-    //     request.session.twitterAccess.accessToken,
-    //     request.session.twitterAccess.accessTokenSecret,
-    //     // secrets.accessToken,
-    //     // secrets.accessTokenSecret,
-    //     function(error, data, res) {
-    //         if (error) {
-    //             console.log("+++ 122 server.js error: ", error)
-    //             response.status(error.statusCode).send(error)
-    //         } else {
-    //             response.status(200).send(data)
-    //         }
-    //     }
-    // );
 })
 
 router.get('/logout', function(request, response) {
