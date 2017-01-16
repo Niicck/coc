@@ -12,8 +12,8 @@ var sharedDirectives = angular.module('sharedDirectives', []);
 
 app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
     
-    // $rootScope.serverUrl = 'http://localhost:8080';
-    $rootScope.serverUrl = 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080'
+    $rootScope.serverUrl = 'http://localhost:8080';
+    // $rootScope.serverUrl = 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080'
 
     $scope.alert = alert;
 
@@ -35,7 +35,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
                         .then(function(result) {
                             if(result.data.twitterData){
                                 $rootScope.twitterData = result.data.twitterData;
-                                console.log("+++ 38 app.js $rootScope.twitterData: ", JSON.stringify($rootScope.twitterData, null, "\t"));
                                 window.localStorage.setItem('countoncongress-username', $rootScope.twitterData.twitterUsername);
                                 window.localStorage.setItem('countoncongress-userSignedIn', $rootScope.twitterData.signedIn);
                             }else{

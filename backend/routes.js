@@ -8,10 +8,21 @@ var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
-    // callback: 'http://localhost:8080/twitterAuthenticated'
-    callback: 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
+    callback: 'http://localhost:8080/twitterAuthenticated'
+    // callback: 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
         // callback: 'http://countoncongress.org/twitterAuthenticated'
 });
+
+var OAuth = require('oauth').OAuth;
+var oAuth;
+oAuth = new OAuth(
+    "http://twitter.com/oauth/request_token",
+    "http://twitter.com/oauth/access_token",
+    secrets.consumerKey,
+    secrets.consumerSecret,
+    "1.0A", null, "HMAC-SHA1"
+);
+
 
 //Routes
 //Home route
@@ -82,21 +93,20 @@ router.get('/twitterdata', function(request, response) {
 
 //Send tweet route
 router.post('/sendTweet', function(request, response) {
-    twitter.statuses("update", {
-            status: request.body.tweet
-        },
-        request.session.twitterAccess.accessToken,
-        request.session.twitterAccess.accessTokenSecret,
-
-        function(error, data, res) {
-            if (error) {
-                console.log("+++ 122 server.js error: ", error)
-                response.status(error.statusCode).send(error)
-            } else {
-                response.status(200).send(data)
+    oAuth.post(
+            "https://api.twitter.com/1.1/statuses/update.json",
+            request.session.twitterAccess.accessToken,
+            request.session.twitterAccess.accessTokenSecret, 
+            { "status": request.body.tweet },
+            function(error, data) {
+                if (error) {
+                    console.log("+++ 122 server.js error: ", error.statusCode)
+                    response.status(error.statusCode).send(error)
+                } else {
+                    response.status(200).send(data)
+                }
             }
-        }
-    );
+        );
 
 })
 //Logout from our app. App still has access in the user's twitter apps, but our sessions is destroyed.
