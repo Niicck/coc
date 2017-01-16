@@ -35,7 +35,9 @@ router.get('/', function(request, response) {
 });
 //login to Twitter route
 router.get('/twitterlogin', function(request, response) {
+    console.log("+++ 38 routes.js at /twitterlogin")
     if (request.session.twitterData && request.session.twitterData.signedIn) {
+        console.log("+++ 40 routes.js twitter data present already, redirect to /")
         response.redirect('/')
     } else {
         twitter.getRequestToken(function(error, requestToken, requestTokenSecret, results) {
@@ -44,6 +46,7 @@ router.get('/twitterlogin', function(request, response) {
                 request.session.twitterData.signedIn = false;
                 response.sendStatus(404)
             } else {
+                console.log("+++ 49 routes.js /twitterlogin success")
                 request.session.twitterRequest = {};
                 request.session.twitterData = {};
                 request.session.twitterRequest.twitterRequestToken = requestToken;
@@ -56,10 +59,12 @@ router.get('/twitterlogin', function(request, response) {
 });
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
+    console.log("+++ 62 routes.js at /twitterAuthenticated")
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
             console.log(error);
         } else {
+            console.log("+++ 67 routes.js Success at /twitterAuthenticated. Redirect to /")
             request.session.twitterAccess = {}
             request.session.twitterAccess.accessToken = accessToken;
             request.session.twitterAccess.accessTokenSecret = accessTokenSecret;
@@ -70,12 +75,14 @@ router.get('/twitterAuthenticated', function(request, response) {
 });
 //Get twitter data for frontend verification
 router.get('/twitterdata', function(request, response) {
+    console.log("+++ 78 routes.js /twitterdata")
     response.status(200).send({
         twitterData: request.session.twitterData
     })
 });
 //Send tweet route
 router.post('/sendTweet', function(request, response) {
+    console.log("+++ 85 routes.js /sendTweet")
     twitter.statuses("update", 
         { status: request.body.tweet },
         request.session.twitterAccess.accessToken,
