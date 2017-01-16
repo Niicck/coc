@@ -10,12 +10,13 @@ var app = angular.module('app', [
 
 var sharedDirectives = angular.module('sharedDirectives', []);
 
-app.controller('appCtrl', function($scope, lodash, $rootScope, alert, confirm) {
+app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
     $rootScope.serverUrl = 'http://localhost:8080'
 
     $scope.alert = alert;
 
     $scope.confirm = confirm;
+    $scope.currentYear = moment().format('YYYY')
 })
 
 //Main route serving site template
