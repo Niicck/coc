@@ -11,16 +11,24 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
     }
     console.log("+++ 12 root_ctrl.js $scope.userData: ", $scope.userData)
 
+    var getTwitterData = function () {
+        console.log("+++ 15 root_ctrl.js Getting Twitter Data")
+        rootServices.userData()
+            .then(function(twitterData) {
+                console.log("+++ 18 root_ctrl.js twitterData: ", twitterData)
+                $rootScope.twitterData = twitterData.data.twitterData;
+                console.log("+++ 20 root_ctrl.js $rootScope.twitterData: ", $rootScope.twitterData)
+                console.log("+++ 21 root_ctrl.js $scope.userData: ", $scope.userData)
+            })
+    }
+
     $scope.loginToTwitter = function() {
         rootServices.loginToTwitter()
             .then(function(response) {
                 if (response.data.requestToken) {
                     $window.location.href = 'https://www.twitter.com/oauth/authenticate?oauth_token=' + response.data.requestToken
                 } else {
-                    services.userData()
-                        .then(function(twitterData) {
-                            $rootScope.twitterData = twitterData.data.twitterData;
-                        })
+                    getTwitterData();
                 }
             })
     }
@@ -52,4 +60,6 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
         }
         $scope.confirm.initialize('Are you sure you want to logout?', onYes);
     }
+
+    getTwitterData();
 });

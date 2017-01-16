@@ -69,6 +69,8 @@ router.get('/twitterAuthenticated', function(request, response) {
             request.session.twitterAccess.accessToken = accessToken;
             request.session.twitterAccess.accessTokenSecret = accessTokenSecret;
             request.session.twitterData.twitterUsername = results.screen_name;
+            request.session.twitterData.userId = results.user_id;
+            console.log("+++ 72 routes.js results: ", results)
             response.redirect('/')
         }
     });
@@ -76,6 +78,7 @@ router.get('/twitterAuthenticated', function(request, response) {
 //Get twitter data for frontend verification
 router.get('/twitterdata', function(request, response) {
     console.log("+++ 78 routes.js /twitterdata")
+    console.log("+++ 79 routes.js request.session.twitterData: ", request.session.twitterData)
     response.status(200).send({
         twitterData: request.session.twitterData
     })
