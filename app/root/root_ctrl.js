@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('rootController', function($scope, $rootScope, $window, rootServices, commServices, confirm) {
+app.controller('rootController', function($scope, $rootScope, $window, rootServices, commServices) {
 
     $scope.committees = [];
     _.forEach(commServices, function(committee) {
@@ -37,6 +37,14 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
             })
     }
 
+
+    $scope.test = function() {
+        function onYes() {
+            console.log("+++ 43 root_ctrl.js Here")
+        }
+        $scope.confirm.initialize('Are you sure you want to logout?', onYes);
+    }
+
     $scope.logout = function() {
         function onYes() {
             rootServices.logout()
@@ -50,7 +58,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
                     }
                 })
         }
-        confirm.initialize('Are you sure you want to logout?', onYes);
+        $scope.confirm.initialize('Are you sure you want to logout?', onYes);
     }
 });
 

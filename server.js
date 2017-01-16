@@ -5,14 +5,14 @@ var cors = require('cors')
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var keys = require('express-session');
-var router = require('./backend/secrets.js');
+var secrets = require('./backend/secrets.js');
 var router = require('./backend/routes.js');
 
 var app = express();
 module.exports.app = app;
 
 app.use(session({
-    secret: 'kmddlr17',
+    secret: secrets.sessionSecret,
     resave: true,
     saveUninitialized: false,
 }));

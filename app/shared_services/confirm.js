@@ -5,8 +5,8 @@ app.factory('confirm', function($uibModal) {
     service.initialize = function(message, onYes) {
         var modalInstance = $uibModal.open({
             animation: true,
-            templateUrl: 'app/root/confirm.html',
-            controller: 'confirmModal',
+            templateUrl: 'app/shared_templates/confirm.html',
+            controller: 'confirm',
             size: 'sm',
             resolve: {
                 message: function() {
@@ -22,7 +22,7 @@ app.factory('confirm', function($uibModal) {
     return service;
 })
 
-app.controller('confirmModal', function ($scope, $uibModalInstance, message, onYes) {
+app.controller('confirm', function ($scope, $uibModalInstance, message, onYes) {
     $scope.cancel = function() {
         $uibModalInstance.close();
     };
