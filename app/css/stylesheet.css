@@ -128,7 +128,7 @@ h1::first-letter {
 }
 
 .main-section {
-    margin-top: 180px;
+    margin-top: 210px;
 }
 
 .main-table {
@@ -150,6 +150,11 @@ h1::first-letter {
         cursor: pointer;
 }
 
+.alert-modal-position{
+    position: fixed; 
+    margin-top: 20px;
+    z-index: 9999;
+}
 
 /*CUSTOM TWEET BUTTON*/
 

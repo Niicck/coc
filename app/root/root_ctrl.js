@@ -17,7 +17,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
                     $window.location.href = 'https://www.twitter.com/oauth/authenticate?oauth_token=' + response.data.requestToken
                 } else{
                     services.userData()
-                        then(function (twitterData) {
+                        .then(function (twitterData) {
                             $rootScope.twitterData = twitterData.data.twitterData;
                         })
                 }
@@ -25,24 +25,24 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
             })
     }
 
-    $scope.sendTweet = function(message, committeeIndex, memberIndex){
-            
+    $scope.sendTweet = function(message, name, committeeIndex, memberIndex){
+             
         rootServices.sendTweet(message)
             .then(function(result) {
                 if(result.status === 200){
                     $scope.committees[committeeIndex][memberIndex].chairman.message = $scope.committees[committeeIndex][memberIndex].chairman.twitterHandle + " ";
+                    $scope.alert.addAlert('Tweet Sent to ' + name, 'success');
                 } else{
                   console.log("+++ 35 root_ctrl.js ERROR")
+                  $scope.alert.addAlert('Something went wrong with Twitter', 'danger');
                 };
             })
     }
 
 
-    $scope.test = function() {
-        function onYes() {
-            console.log("+++ 43 root_ctrl.js Here")
-        }
-        $scope.confirm.initialize('Are you sure you want to logout?', onYes);
+    $scope.test = function(index) {
+        // $scope.alert.addAlert('Something went wrong with Twitter', 'danger');
+        $scope.alert.addAlert('Tweet Sent', 'success');
     }
 
     $scope.logout = function() {
