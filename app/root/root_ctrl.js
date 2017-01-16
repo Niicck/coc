@@ -9,6 +9,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
     if($window.localStorage["countoncongress-userSignedIn"]){
         $scope.userData = $rootScope.twitterData;
     }
+    console.log("+++ 12 root_ctrl.js $window.localStorage[countoncongress-userSignedIn]: ", $window.localStorage["countoncongress-userSignedIn"])
 
     $scope.loginToTwitter = function() {
         rootServices.loginToTwitter()
@@ -21,7 +22,6 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
                             $rootScope.twitterData = twitterData.data.twitterData;
                         })
                 }
-
             })
     }
 

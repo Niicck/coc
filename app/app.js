@@ -34,7 +34,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     rootServices.userData()
                         .then(function(result) {
                             if(result.data.twitterData){
-                                $rootScope.twitterData = result.data.twitterData
+                                $rootScope.twitterData = result.data.twitterData;
+                                console.log("+++ 38 app.js $rootScope.twitterData: ", JSON.stringify($rootScope.twitterData, null, "\t"));
                                 window.localStorage.setItem('countoncongress-username', $rootScope.twitterData.twitterUsername);
                                 window.localStorage.setItem('countoncongress-userSignedIn', $rootScope.twitterData.signedIn);
                             }else{
