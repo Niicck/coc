@@ -87,12 +87,11 @@ router.get('/twitterdata', function(request, response) {
 })
 
 router.post('/sendTweet', function(request, response) {
-
     oAuth.post(
         "https://api.twitter.com/1.1/statuses/update.json",
         request.session.twitterAccess.accessToken,
         request.session.twitterAccess.accessTokenSecret, 
-        { "status": "Need somebody to love me again and again and LAST TIME" },
+        { "status": request.body.tweet },
         function(error, data) {
             if (error) {
                 console.log("+++ 122 server.js error: ", error)
