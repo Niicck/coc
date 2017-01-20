@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
     <div class="container-fluid dark-blue white-text">
         <div class="col-md-offset-3 col-md-6 alert-modal-position">
-          <div uib-alert ng-repeat="alt in alert.alerts" ng-class="'alert-' + (alt.type)" close="alert.closeAlert($index)" dismiss-on-timeout="2000">{{alt.message}}</div> 
+            <div uib-alert ng-repeat="alt in alert.alerts" ng-class="'alert-' + (alt.type)" close="alert.closeAlert($index)" dismiss-on-timeout="2000">{{alt.message}}</div>
         </div>
         <div id="div5"></div>
         <div class="col-md-3">
@@ -10,13 +10,13 @@
             </div>
         </div>
         <div class="col-md-7">
-            <h1 class="margin-top-immense margin-bottom-immense playfair-font">
+            <h1 class="margin-top-immense margin-bottom-immense roboto-font">
             Tweet to talk to your Congressional Committee Members
           </h1>
             <div class="col-md-12">
-                <p class="margin-bottom-immense">
-                    "Congress in committee rooms is Congress at work"
-                </p>
+              <p class="margin-bottom-immense">
+                "Congress in committee rooms is Congress at work"
+              </p>
             </div>
         </div>
         <div>
@@ -44,72 +44,243 @@
             We put together an overview of the committees with key contact information so that citizens can reach out and have a conversation with leaders and committee members on various topics.
         </p>
     </div>
-    <div>
-        <div ng-repeat="committeeGroups in committees">
-            <div class="margin-bottom-large col-md-9 no-padding">
-                <h2 class="playfair-font">{{committeeGroups[0].committeeName}}</h2>
-                <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3>
-                    <a class="fauna-font" href="{{committeeGroups[0].readMore}}" target="_blank">Read More</a>
-            </div>
-            <table class="table custom-table">
-                <col width="140">
-                <col width="170">
-                <col width="170">
-                <col>
-                <col width="150">
-                <col width="170">
-                <thead>
-
-                    <tr class="tan header fauna-font">
-                        <th class="align-center">Committee Role</th>
-                        <th class="align-center">Member Name</th>
-                        <th class="align-center">Twitter Handle</th>
-                        <th class="align-center">Compose Tweet</th>
-                        <th class="align-center">Phone Number</th>
-                        <th class="align-center">On The Issues Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="committee in committeeGroups" class="offset-color open-sans-font">
-                        <td class="capitalize">{{committee.type}}</td>
-                        <td>{{committee.chairman.name}}</td>
-                        <td>
-                            <a href="{{committee.chairman.twitterPage}}" target="_blank">{{committee.chairman.twitterHandle}}</a>
-                        </td>
-                        <td>
-                          <div>
-                            <textarea class="col-md-12 text-area" autofocus  maxlength="140" rows="5" cols="20" ng-model="committee.chairman.message" ng-trim="false" ng-disabled="!userData.signedIn">{{committee.chairman.twitterHandle}}</textarea>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-12 margin-top-small">
-                              
-                              <div class="small-font align-right">
-                                  Characters left: {{140-committee.chairman.message.length}}
-                              </div>
-                              <div class="custom-tweet-button align-right margin-top-small" ng-show="userData.signedIn">
-                                <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.chairman.message, committee.chairman.twitterHandle, $parent.$index, $index)">
-                                  <i class="btn-icon"></i>
-                                  <span class="btn-text">Tweet</span>
-                                </a>
-                              </div>
-
-                              <div class="custom-tweet-button align-right margin-top-small" ng-show="!userData.signedIn">
-                                <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
-                                    <i class="btn-icon"></i>
-                                    <span class="btn-text">Login</span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="align-center">{{committee.chairman.phone}}</td>
-                        <td class="align-center">
-                          <a href="{{committee.chairman.onTheIssues}}" target="_blank">Learn More
-                          </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="row">
+      <div class="btn-group">
+          </div">
+      <button class="btn" ng-click="selectHouse()" ng-class="houseSelectedClass">
+          House
+      </button>
+      <button class="btn" ng-click="selectSenate()" ng-class="senateSelectedClass">
+          Senate
+      </button>
+    </div>
+    <div ng-show="houseSelected">
+      <div ng-repeat="committee in houseCommittees">
+        <div class="margin-bottom-large col-md-9 no-padding">
+            <h2 class="roboto-font">{{committee.committee.name}}</h2>
+            <!-- <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3> -->
+            <a class="fauna-font" href="{{committee.committee.url}}" target="_blank">Read More</a>
         </div>
+        <table class="table custom-table">
+          <col width="75">
+          <col width="130">
+          <col width="130">
+          <col width="400">
+          <col width="150">
+          <col width="170">
+          <thead>
+              <tr class="tan header fauna-font">
+                <th class="align-center">Position</th>
+                <th class="align-center">Member Name</th>
+                <th class="align-center">Twitter Handle</th>
+                <th class="align-center">Compose Tweet</th>
+                <th class="align-center">Website</th>
+                <th class="align-center">On The Issues Link</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Chair
+              </td>
+              <td>{{committee.committee.chair}}</td>
+              <td>
+                <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
+                  @{{committee.chair.twitter_account}}
+                </a>
+              </td>
+              <td>
+                <div>
+                  <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.chair.message" ng-disabled="!userData.signedIn"></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 margin-top-small">
+                    <div class="small-font align-right">
+                      Characters left: {{140-committee.chair.message.length}}
+                    </div>
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="userData.signedIn">
+                      <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.chair.message, committee.chair.twitter_account, 'chair', 'house', $index)">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Tweet</span>
+                      </a>
+                    </div>
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="!userData.signedIn">
+                      <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Login</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a href="committee.chair.url" target="_blank">
+                  {{committee.chair.url}}
+                </a>
+              </td>
+              <td>
+                {{}}
+              </td>
+            </tr>
+            <tr ng-show="committee.ranking_member.twitter_account">
+              <td>
+                Ranking Member
+              </td>
+              <td>{{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}</td>
+              <td>
+                <a href="http://twitter.com/{{committee.ranking_member.twitter_account}}" target="_blank">
+                  @{{committee.ranking_member.twitter_account}}
+                </a>
+              </td>
+              <td>
+                <div>
+                  <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.ranking_member.message" ng-disabled="!userData.signedIn"></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 margin-top-small">
+                    <div class="small-font align-right">
+                      Characters left: {{140-committee.ranking_member.message.length}}
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="userData.signedIn">
+                      <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.ranking_member.message, committee.ranking_member.twitter_account, 'ranking_member', 'house', $index)">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Tweet</span>
+                      </a>
+                    </div>
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="!userData.signedIn">
+                      <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Login</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a href="committee.ranking_member.url" target="_blank">
+                  {{committee.ranking_member.url}}
+                </a>
+              </td>
+              <td>
+                {{}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div ng-show="senateSelected">
+      <div ng-repeat="committee in senateCommittees">
+        <div class="margin-bottom-large col-md-9 no-padding">
+            <h2 class="roboto-font">{{committee.committee.name}}</h2>
+            <!-- <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3> -->
+            <a class="fauna-font" href="{{committee.committee.url}}" target="_blank">Read More</a>
+        </div>
+        <table class="table custom-table">
+          <col width="75">
+          <col width="130">
+          <col width="130">
+          <col width="400">
+          <col width="150">
+          <col width="170">
+          <thead>
+              <tr class="tan header fauna-font">
+                <th class="align-center">Position</th>
+                <th class="align-center">Member Name</th>
+                <th class="align-center">Twitter Handle</th>
+                <th class="align-center">Compose Tweet</th>
+                <th class="align-center">Website</th>
+                <th class="align-center">On The Issues Link</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Chair
+              </td>
+              <td>{{committee.committee.chair}}</td>
+              <td>
+                <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
+                  @{{committee.chair.twitter_account}}
+                </a>
+              </td>
+              <td>
+                <div>
+                  <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.chair.message" ng-disabled="!userData.signedIn"></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 margin-top-small">
+                    <div class="small-font align-right">
+                      Characters left: {{140-committee.chair.message.length}}
+                    </div>
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="userData.signedIn">
+                      <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.chair.message, committee.chair.twitter_account, 'chair', 'senate', $index)">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Tweet</span>
+                      </a>
+                    </div>
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="!userData.signedIn">
+                      <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Login</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a href="committee.chair.url" target="_blank">
+                  {{committee.chair.url}}
+                </a>
+              </td>
+              <td>
+                {{}}
+              </td>
+            </tr>
+            <tr ng-show="committee.ranking_member.twitter_account">
+              <td>
+                Ranking Member
+              </td>
+              <td>{{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}</td>
+              <td>
+                <a href="http://twitter.com/{{committee.ranking_member.twitter_account}}" target="_blank">
+                  @{{committee.ranking_member.twitter_account}}
+                </a>
+              </td>
+              <td>
+                <div>
+                  <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.ranking_member.message" ng-disabled="!userData.signedIn"></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 margin-top-small">
+                    <div class="small-font align-right">
+                      Characters left: {{140-committee.ranking_member.message.length}}
+                    </div>
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="userData.signedIn">
+                      <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.ranking_member.message, committee.ranking_member.twitter_account, 'ranking_member', 'senate', $index)">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Tweet</span>
+                      </a>
+                    </div>
+                    <div class="custom-tweet-button align-right margin-top-small" ng-show="!userData.signedIn">
+                      <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
+                        <i class="btn-icon"></i>
+                        <span class="btn-text">Login</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a href="committee.ranking_member.url" target="_blank">
+                  {{committee.ranking_member.url}}
+                </a>
+              </td>
+              <td>
+                {{}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 </div>
