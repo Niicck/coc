@@ -67,14 +67,21 @@
           <col width="10">
           <col width="100">
           <col width="80">
-          <col width="600">
-          <!-- <col width="170"> -->
+          <col width="300">
+          <col width="70">
+          <col width="70">
+          <col width="70">
+          <col width="80">
           <thead>
               <tr class="tan header fauna-font">
                 <th class="align-center">Position</th>
                 <th class="align-center">Member Name</th>
                 <th class="align-center">Twitter Handle</th>
                 <th class="align-center">Compose Tweet</th>
+                <th class="align-center">Next Election</th>
+                <th class="align-center">% Missed Votes</th>
+                <th class="align-center">% Votes with Party</th>
+                <th class="align-center">Social</th>
                 <!-- <th class="align-center">On The Issues Link</th> -->
               </tr>
           </thead>
@@ -117,35 +124,28 @@
                   </div>
                 </div>
               </td>
-            </tr>
-            <tr>
               <td>
+                <div class="bold align-center">
+                  {{committee.chair.next_election}}
+                </div>
+              </td>
+              <td>
+                <div class="bold align-center">
+                  {{committee.chair.missed_votes_pct}}%
+                </div> 
+              </td>
+              <td>
+                <div class="bold align-center">
+                  {{committee.chair.votes_with_party_pct}}%
+                </div> 
+              </td>
+              <td class="align-center">
                 <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
                   <img class="badge-holder" src="/app/assets/tw.png"></img>
                 </a>
                 <a href="http://facebook.com/{{committee.chair.facebook_id}}" target="_blank">
                   <img class="badge-holder" src="/app/assets/fb.png"></img>
                 </a>
-              </td>
-              <td>
-                <div>
-                  Next Election: 
-                </div>
-                <div class="bold">
-                  {{committee.chair.next_election}}
-                </div>
-              </td>
-              <td>
-                <div>
-                  Missed Votes Percentage:
-                </div>
-                <div class="bold">
-                  {{committee.chair.missed_votes_pct}}%
-                </div>
-                <br>  
-              </td>
-              <td>
-                
               </td>
             </tr>
             <tr ng-show="committee.ranking_member.twitter_account">
