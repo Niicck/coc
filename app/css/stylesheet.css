@@ -52,6 +52,10 @@ p {
     font-family: 'Fauna One', serif;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 
 /*TYPOGRAPHY*/
 
@@ -87,7 +91,7 @@ p {
     font-size: 14px;
 }
 
-h1::first-letter { 
+h1::first-letter {
     font-size: 125%;
 }
 
@@ -151,14 +155,21 @@ h1::first-letter {
 }
 
 .pointer {
-        cursor: pointer;
+    cursor: pointer;
 }
 
-.alert-modal-position{
-    position: fixed; 
+.alert-modal-position {
+    position: fixed;
     margin-top: 20px;
     z-index: 9999;
 }
+
+/*BADGES*/
+.badge-holder{
+    height: 25px;
+    padding-right: 5px;
+}
+
 
 /*CUSTOM TWEET BUTTON*/
 
@@ -620,4 +631,3 @@ p {
 .no-bottom-margin {
     margin-bottom: 0;
 }
-

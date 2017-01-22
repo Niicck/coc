@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('rootController', function($scope, $rootScope, $window, rootServices, houseCommittees, senateCommittees) {
+app.controller('rootController', function($scope, $rootScope, $window, rootServices, houseCommittees, senateCommittees, senateServices, houseServices) {
 
     $scope.houseCommittees = houseCommittees.committees;
 
@@ -58,6 +58,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
                 $scope.alert.addAlert('Tweet Sent to @' + twitterHandle, 'success');
             })
             .catch(function(result) {
+                console.log("+++ 64 root_ctrl.js result: ", result)
                 var response = JSON.parse(result.data.data)
                 $scope.alert.addAlert(response.errors[0].message, 'danger');
             })
@@ -80,9 +81,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
     }
 
     getTwitterData();
-});
-
-
+// THIS CODE BELOW PULLS CONGRESS' COMMISSIONS AND MEMBERS DATA FROM PROPUBLICA AND MERGES IT PER HOUSE. TO RUN IT: UN COMMENT matchHouse() OR matchSenate() AND LOAD THE PAGE. THE MERGED DATA WILL SHOW UP ON THE CONSOLE.
 
 // $scope.senate = senateServices;
 // $scope.house = houseServices;
@@ -128,9 +127,11 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
 //         _.forEach($scope.senate.members[0].members, function(member) {
 //             if (member.id === committee.chair_id) {
 //                 matchedData.chair = member;
+//                 matchedData.chair.message = "@" + member.twitter_account + " ";
 //             }
 //             if (member.id === committee.ranking_member_id) {
 //                 matchedData.ranking_member = member;
+//                 matchedData.ranking_member.message = "@" + member.twitter_account + " ";
 //             }
 //         })
 //         $scope.matchedSenate.push(matchedData)
@@ -140,3 +141,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
 
 // // matchHouse();
 // matchSenate();
+
+
+});
+
