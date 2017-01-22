@@ -133,19 +133,36 @@
                 <div class="bold align-center">
                   {{committee.chair.missed_votes_pct}}%
                 </div> 
+                <div class="align-center">
+                  % missed votes  - +
+                </div> 
+                <div class="bold align-center">
+                  {{houseMissedPercentAvg - committee.chair.missed_votes_pct | number:2}}%
+                </div> 
               </td>
               <td>
                 <div class="bold align-center">
                   {{committee.chair.votes_with_party_pct}}%
+                </div>
+                <div class="align-center">
+                  - % votes with party - +
+                </div> 
+                <div class="bold align-center">
+                  {{houseVotesWithPartyAvg - committee.chair.votes_with_party_pct | number:2}}%
                 </div> 
               </td>
               <td class="align-center">
-                <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
-                  <img class="badge-holder" src="/app/assets/tw.png"></img>
-                </a>
-                <a href="http://facebook.com/{{committee.chair.facebook_id}}" target="_blank">
-                  <img class="badge-holder" src="/app/assets/fb.png"></img>
-                </a>
+                <div class="col-md-offset-2 col-md-4 no-padding">
+                  <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
+                    <img class="badge-holder" src="/app/assets/tw.png"></img>
+                  </a>
+                </div>
+                <div class="col-md-6 no-padding">
+                  <a class="align-right" href="http://facebook.com/{{committee.chair.facebook_id}}" target="_blank">
+                    <img class="badge-holder" src="/app/assets/fb.png"></img>
+                  </a>
+                </div>
+
               </td>
             </tr>
             <tr ng-show="committee.ranking_member.twitter_account">
