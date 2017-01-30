@@ -47,16 +47,10 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
             })
     }
 
-    $scope.sendTweet = function(message, twitterHandle, position, chamber, index) {
+    $scope.sendTweet = function(message, twitterHandle, position, index) {
         rootServices.sendTweet(message)
             .then(function(result) {
-                if (chamber === "house") {
-                    $scope.houseCommittees[index][position].message = '@' + $scope.houseCommittees[index][position].twitter_account + " "
-                }
-                if (chamber === "senate") {
-                    $scope.senateCommittees[index][position].message = '@' + $scope.senateCommittees[index][position].twitter_account + " "
-                }
-
+                $scope.committeesSelectedData[index][position].message = '@' + $scope.committeesSelectedData[index][position].twitter_account + " "
                 $scope.alert.addAlert('Tweet Sent to @' + twitterHandle, 'success');
             })
             .catch(function(result) {
