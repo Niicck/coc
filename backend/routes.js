@@ -73,7 +73,7 @@ router.get('/twitterAuthenticated', function(request, response) {
             console.log("+++ 72 routes.js results: ", results)
             response.redirect('/')
         }
-    });
+    })
 });
 //Get twitter data for frontend verification
 router.get('/twitterdata', function(request, response) {
@@ -97,7 +97,7 @@ router.post('/sendTweet', function(request, response) {
                 response.status(200).send(data)
             }
         }
-    );
+    )
 });
 //Logout from our app. App still has access in the user's twitter apps, but our sessions is destroyed.
 router.get('/logout', function(request, response) {
