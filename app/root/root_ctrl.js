@@ -86,59 +86,59 @@ $scope.senate = senateServices;
 $scope.house = houseServices;
 
 
-// $scope.matchedHouse = [];
-// $scope.matchedSenate = [];
+$scope.matchedHouse = [];
+$scope.matchedSenate = [];
 
-// var matchHouse = function() {
-//     _.forEach($scope.house.committees[0].committees, function(committee) {
+var matchHouse = function() {
+    _.forEach($scope.house.committees[0].committees, function(committee) {
 
-//         var matchedData = {
-//             committee: committee,
-//             chair: null,
-//             ranking_member: null
+        var matchedData = {
+            committee: committee,
+            chair: null,
+            ranking_member: null
 
-//         };
+        };
 
-//         _.forEach($scope.house.members[0].members, function(member) {
-//             if (member.id === committee.chair_id) {
-//                 matchedData.chair = member;
-//             }
-//             if (member.id === committee.ranking_member_id) {
-//                 matchedData.ranking_member = member;
-//             }
+        _.forEach($scope.house.members[0].members, function(member) {
+            if (member.id === committee.chair_id) {
+                matchedData.chair = member;
+            }
+            if (member.id === committee.ranking_member_id) {
+                matchedData.ranking_member = member;
+            }
 
-//         })
-//         $scope.matchedHouse.push(matchedData)
-//     })
-//     console.log("+++ 30 root_ctrl.js $scope.matchedHouse: ", JSON.stringify($scope.matchedHouse, null, "\t"));
-// }
+        })
+        $scope.matchedHouse.push(matchedData)
+    })
+    console.log("+++ 30 root_ctrl.js $scope.matchedHouse: ", JSON.stringify($scope.matchedHouse, null, "\t"));
+}
 
 
 
-// var matchSenate = function() {
-//     _.forEach($scope.senate.committees[0].committees, function(committee) {
+var matchSenate = function() {
+    _.forEach($scope.senate.committees[0].committees, function(committee) {
 
-//         var matchedData = {
-//             committee: committee,
-//             chair: null
-//         };
+        var matchedData = {
+            committee: committee,
+            chair: null
+        };
 
-//         _.forEach($scope.senate.members[0].members, function(member) {
-//             if (member.id === committee.chair_id) {
-//                 matchedData.chair = member;
-//                 matchedData.chair.message = "@" + member.twitter_account + " ";
-//             }
-//             if (member.id === committee.ranking_member_id) {
-//                 matchedData.ranking_member = member;
-//                 matchedData.ranking_member.message = "@" + member.twitter_account + " ";
-//             }
-//         })
-//         $scope.matchedSenate.push(matchedData)
-//     })
-//     console.log("+++ 30 root_ctrl.js $scope.matchedSenate: ", JSON.stringify($scope.matchedSenate, null, "\t"));
-// }
-
-// // matchHouse();
+        _.forEach($scope.senate.members[0].members, function(member) {
+            if (member.id === committee.chair_id) {
+                matchedData.chair = member;
+                matchedData.chair.message = "@" + member.twitter_account + " ";
+            }
+            if (member.id === committee.ranking_member_id) {
+                matchedData.ranking_member = member;
+                matchedData.ranking_member.message = "@" + member.twitter_account + " ";
+            }
+        })
+        $scope.matchedSenate.push(matchedData)
+    })
+    console.log("+++ 30 root_ctrl.js $scope.matchedSenate: ", JSON.stringify($scope.matchedSenate, null, "\t"));
+}
+//ONLY RUN THESE WHEN YOU WANT HAVE GATHERED THE NEW CONGRESS DATA FROM PROPUBLICA 
+// matchHouse();
 // matchSenate();
 
 

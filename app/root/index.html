@@ -86,7 +86,7 @@
               </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr ng-show="committee.chair.twitter_account">
               <td>
                 Chair
               </td>
@@ -226,13 +226,13 @@
                   {{houseVotesWithPartyAvg - committee.ranking_member.votes_with_party_pct | number:2}}%
                 </div> 
               </td>
-              <td class="align-center">
+              <td class="align-center" ng-show="committee.ranking_member.twitter_account">
                 <div class="col-md-offset-2 col-md-4 no-padding">
                   <a href="http://twitter.com/{{committee.ranking_member.twitter_account}}" target="_blank">
                     <img class="badge-holder" src="/app/assets/tw.png"></img>
                   </a>
                 </div>
-                <div class="col-md-6 no-padding">
+                <div class="col-md-6 no-padding" ng-show="committee.ranking_member.facebook_id">
                   <a class="align-right" href="http://facebook.com/{{committee.ranking_member.facebook_id}}" target="_blank">
                     <img class="badge-holder" src="/app/assets/fb.png"></img>
                   </a>
