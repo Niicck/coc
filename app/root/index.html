@@ -169,7 +169,11 @@
               <td>
                 Ranking Member
               </td>
-              <td>{{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}</td>
+              <td>
+                <a href="{{committee.ranking_member.url}}" target="_blank">
+                  {{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}
+                </a>
+              </td>
               <td>
                 <a href="http://twitter.com/{{committee.ranking_member.twitter_account}}" target="_blank">
                   @{{committee.ranking_member.twitter_account}}
