@@ -22,6 +22,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "B001227"
           },
           "chair": {
+               "message": "@GreggHarper ",
                "id": "H001045",
                "thomas_id": "1933",
                "api_uri": "https://api.propublica.org/congress/v1/members/H001045.json",
@@ -49,6 +50,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@RepBrady ",
                "id": "B001227",
                "thomas_id": "1469",
                "api_uri": "https://api.propublica.org/congress/v1/members/B001227.json",
@@ -92,6 +94,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "P000258"
           },
           "chair": {
+               "message": "@ConawayTX11 ",
                "id": "C001062",
                "thomas_id": "1805",
                "api_uri": "https://api.propublica.org/congress/v1/members/C001062.json",
@@ -119,6 +122,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "95.38"
           },
           "ranking_member": {
+               "message":  "",
                "id": "P000258",
                "thomas_id": "910",
                "api_uri": "https://api.propublica.org/congress/v1/members/P000258.json",
@@ -162,6 +166,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "L000480"
           },
           "chair": {
+               "message": "@USRepRodney ",
                "id": "F000372",
                "thomas_id": "414",
                "api_uri": "https://api.propublica.org/congress/v1/members/F000372.json",
@@ -189,6 +194,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.88"
           },
           "ranking_member": {
+               "message": "@NitaLowey ",
                "id": "L000480",
                "thomas_id": "709",
                "api_uri": "https://api.propublica.org/congress/v1/members/L000480.json",
@@ -232,6 +238,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "S000510"
           },
           "chair": {
+               "message": "@MacTXPress ",
                "id": "T000238",
                "thomas_id": "1155",
                "api_uri": "https://api.propublica.org/congress/v1/members/T000238.json",
@@ -259,6 +266,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@RepAdamSmith ",
                "id": "S000510",
                "thomas_id": "1528",
                "api_uri": "https://api.propublica.org/congress/v1/members/S000510.json",
@@ -302,6 +310,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "S000185"
           },
           "chair": {
+               "message": "@VirginiaFoxx ",
                "id": "F000450",
                "thomas_id": "1791",
                "api_uri": "https://api.propublica.org/congress/v1/members/F000450.json",
@@ -329,6 +338,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "95.38"
           },
           "ranking_member": {
+               "message": "@BobbyScott ",
                "id": "S000185",
                "thomas_id": "1037",
                "api_uri": "https://api.propublica.org/congress/v1/members/S000185.json",
@@ -372,6 +382,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "P000034"
           },
           "chair": {
+               "message": "@RepGregWalden ",
                "id": "W000791",
                "thomas_id": "1596",
                "api_uri": "https://api.propublica.org/congress/v1/members/W000791.json",
@@ -399,6 +410,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@FrankPallone ",
                "id": "P000034",
                "thomas_id": "887",
                "api_uri": "https://api.propublica.org/congress/v1/members/P000034.json",
@@ -442,6 +454,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "W000187"
           },
           "chair": {
+               "message": "@RepHensarling ",
                "id": "H001036",
                "thomas_id": "1749",
                "api_uri": "https://api.propublica.org/congress/v1/members/H001036.json",
@@ -469,6 +482,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@MaxineWaters ",
                "id": "W000187",
                "thomas_id": "1205",
                "api_uri": "https://api.propublica.org/congress/v1/members/W000187.json",
@@ -512,6 +526,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "E000179"
           },
           "chair": {
+               "message": "@RepEdRoyce ",
                "id": "R000487",
                "thomas_id": "998",
                "api_uri": "https://api.propublica.org/congress/v1/members/R000487.json",
@@ -539,6 +554,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@RepEliotEngel ",
                "id": "E000179",
                "thomas_id": "344",
                "api_uri": "https://api.propublica.org/congress/v1/members/E000179.json",
@@ -582,6 +598,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "T000193"
           },
           "chair": {
+               "message": "@RepMcCaul ",
                "id": "M001157",
                "thomas_id": "1804",
                "api_uri": "https://api.propublica.org/congress/v1/members/M001157.json",
@@ -609,6 +626,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "95.31"
           },
           "ranking_member": {
+               "message": "@BennieGThompson ",
                "id": "T000193",
                "thomas_id": "1151",
                "api_uri": "https://api.propublica.org/congress/v1/members/T000193.json",
@@ -652,6 +670,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "G000551"
           },
           "chair": {
+               "message": "@RepRobBishop ",
                "id": "B001250",
                "thomas_id": "1753",
                "api_uri": "https://api.propublica.org/congress/v1/members/B001250.json",
@@ -679,6 +698,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@RepraulGrijalva ",
                "id": "G000551",
                "thomas_id": "1708",
                "api_uri": "https://api.propublica.org/congress/v1/members/G000551.json",
@@ -722,6 +742,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "C000984"
           },
           "chair": {
+               "message": "@JasonInTheHouse ",
                "id": "C001076",
                "thomas_id": "1956",
                "api_uri": "https://api.propublica.org/congress/v1/members/C001076.json",
@@ -749,6 +770,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "95.38"
           },
           "ranking_member": {
+               "message": "@RepCummings ",
                "id": "C000984",
                "thomas_id": "256",
                "api_uri": "https://api.propublica.org/congress/v1/members/C000984.json",
@@ -792,6 +814,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "S000480"
           },
           "chair": {
+               "message": "@PeteSessions ",
                "id": "S000250",
                "thomas_id": "1525",
                "api_uri": "https://api.propublica.org/congress/v1/members/S000250.json",
@@ -819,6 +842,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@LouiseSlaughter ",
                "id": "S000480",
                "thomas_id": "1069",
                "api_uri": "https://api.propublica.org/congress/v1/members/S000480.json",
@@ -862,6 +886,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "J000126"
           },
           "chair": {
+               "message": "@LamarSmithTX21 ",
                "id": "S000583",
                "thomas_id": "1075",
                "api_uri": "https://api.propublica.org/congress/v1/members/S000583.json",
@@ -889,6 +914,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.88"
           },
           "ranking_member": {
+               "message": "@RepEBJ ",
                "id": "J000126",
                "thomas_id": "599",
                "api_uri": "https://api.propublica.org/congress/v1/members/J000126.json",
@@ -932,6 +958,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "V000081"
           },
           "chair": {
+               "message": "@RepSteveChabot ",
                "id": "C000266",
                "thomas_id": "186",
                "api_uri": "https://api.propublica.org/congress/v1/members/C000266.json",
@@ -959,6 +986,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@NydiaVelazquez ",
                "id": "V000081",
                "thomas_id": "1184",
                "api_uri": "https://api.propublica.org/congress/v1/members/V000081.json",
@@ -1002,6 +1030,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "S001156"
           },
           "chair": {
+               "message": "@SusanWBrooks ",
                "id": "B001284",
                "thomas_id": "2129",
                "api_uri": "https://api.propublica.org/congress/v1/members/B001284.json",
@@ -1029,6 +1058,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@RepLindaSanchez ",
                "id": "S001156",
                "thomas_id": "1757",
                "api_uri": "https://api.propublica.org/congress/v1/members/S001156.json",
@@ -1072,6 +1102,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "V000128"
           },
           "chair": {
+               "message": "@RepDianeBlack ",
                "id": "B001273",
                "thomas_id": "2063",
                "api_uri": "https://api.propublica.org/congress/v1/members/B001273.json",
@@ -1116,6 +1147,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "C000714"
           },
           "chair": {
+               "message": "@RepGoodlatte ",
                "id": "G000289",
                "thomas_id": "446",
                "api_uri": "https://api.propublica.org/congress/v1/members/G000289.json",
@@ -1143,6 +1175,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.88"
           },
           "ranking_member": {
+               "message": "@RepJohnConyers ",
                "id": "C000714",
                "thomas_id": "229",
                "api_uri": "https://api.propublica.org/congress/v1/members/C000714.json",
@@ -1186,6 +1219,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "D000191"
           },
           "chair": {
+               "message": "@RepBillShuster ",
                "id": "S001154",
                "thomas_id": "1681",
                "api_uri": "https://api.propublica.org/congress/v1/members/S001154.json",
@@ -1213,6 +1247,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.88"
           },
           "ranking_member": {
+               "message": "@RepPeterDeFazio ",
                "id": "D000191",
                "thomas_id": "279",
                "api_uri": "https://api.propublica.org/congress/v1/members/D000191.json",
@@ -1256,6 +1291,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "B000911"
           },
           "chair": {
+               "message": "@DrPhilRoe ",
                "id": "R000582",
                "thomas_id": "1954",
                "api_uri": "https://api.propublica.org/congress/v1/members/R000582.json",
@@ -1300,6 +1336,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "L000263"
           },
           "chair": {
+               "message": "@RepKevinBrady ",
                "id": "B000755",
                "thomas_id": "1468",
                "api_uri": "https://api.propublica.org/congress/v1/members/B000755.json",
@@ -1327,6 +1364,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.88"
           },
           "ranking_member": {
+               "message": "@RepSandyLevin ",
                "id": "L000263",
                "thomas_id": "683",
                "api_uri": "https://api.propublica.org/congress/v1/members/L000263.json",
@@ -1370,6 +1408,7 @@ app.factory('houseCommittees', function() {
                "ranking_member_id": "S001150"
           },
           "chair": {
+               "message": "@Rep_DevinNunes ",
                "id": "N000181",
                "thomas_id": "1710",
                "api_uri": "https://api.propublica.org/congress/v1/members/N000181.json",
@@ -1397,6 +1436,7 @@ app.factory('houseCommittees', function() {
                "votes_with_party_pct": "96.92"
           },
           "ranking_member": {
+               "message": "@RepAdamSchiff ",
                "id": "S001150",
                "thomas_id": "1635",
                "api_uri": "https://api.propublica.org/congress/v1/members/S001150.json",

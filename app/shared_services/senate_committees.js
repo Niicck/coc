@@ -19,6 +19,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "S000770"
         },
         "chair": {
+            "message": "@SenPatRoberts ",
             "id": "R000307",
             "thomas_id": "968",
             "api_uri": "https://api.propublica.org/congress/v1/members/R000307.json",
@@ -46,6 +47,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenPatRoberts "
         },
         "ranking_member": {
+            "message": "@SenStabenow",
             "id": "S000770",
             "thomas_id": "1531",
             "api_uri": "https://api.propublica.org/congress/v1/members/S000770.json",
@@ -88,6 +90,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "M000702"
         },
         "chair": {
+            "message": "@SenThadCochran ",
             "id": "C000567",
             "thomas_id": "213",
             "api_uri": "https://api.propublica.org/congress/v1/members/C000567.json",
@@ -130,6 +133,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "R000122"
         },
         "chair": {
+            "message": "@SenJohnMcCain ",
             "id": "M000303",
             "thomas_id": "754",
             "api_uri": "https://api.propublica.org/congress/v1/members/M000303.json",
@@ -157,6 +161,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenJohnMcCain "
         },
         "ranking_member": {
+            "message": "@SenJackReed",
             "id": "R000122",
             "thomas_id": "949",
             "api_uri": "https://api.propublica.org/congress/v1/members/R000122.json",
@@ -199,6 +204,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "B000944"
         },
         "chair": {
+            "message": "@MikeCrapo ",
             "id": "C000880",
             "thomas_id": "250",
             "api_uri": "https://api.propublica.org/congress/v1/members/C000880.json",
@@ -226,6 +232,7 @@ app.factory('senateCommittees', function() {
             "message": "@MikeCrapo "
         },
         "ranking_member": {
+            "message": "@SenSherrodBrown",
             "id": "B000944",
             "thomas_id": "136",
             "api_uri": "https://api.propublica.org/congress/v1/members/B000944.json",
@@ -268,6 +275,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "N000032"
         },
         "chair": {
+            "message": "@SenJohnThune ",
             "id": "T000250",
             "thomas_id": "1534",
             "api_uri": "https://api.propublica.org/congress/v1/members/T000250.json",
@@ -295,6 +303,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenJohnThune "
         },
         "ranking_member": {
+            "message": "@SenBillNelson",
             "id": "N000032",
             "thomas_id": "859",
             "api_uri": "https://api.propublica.org/congress/v1/members/N000032.json",
@@ -337,6 +346,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "C000127"
         },
         "chair": {
+            "message": "@LisaMurkowski ",
             "id": "M001153",
             "thomas_id": "1694",
             "api_uri": "https://api.propublica.org/congress/v1/members/M001153.json",
@@ -364,6 +374,7 @@ app.factory('senateCommittees', function() {
             "message": "@LisaMurkowski "
         },
         "ranking_member": {
+            "message": "@SenatorCantwell",
             "id": "C000127",
             "thomas_id": "172",
             "api_uri": "https://api.propublica.org/congress/v1/members/C000127.json",
@@ -406,6 +417,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "B000711"
         },
         "chair": {
+            "message": "@SenJohnBarrasso ",
             "id": "B001261",
             "thomas_id": "1881",
             "api_uri": "https://api.propublica.org/congress/v1/members/B001261.json",
@@ -448,6 +460,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "W000779"
         },
         "chair": {
+            "message": "@SenOrrinHatch ",
             "id": "H000338",
             "thomas_id": "1351",
             "api_uri": "https://api.propublica.org/congress/v1/members/H000338.json",
@@ -475,6 +488,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenOrrinHatch "
         },
         "ranking_member": {
+            "message": "@RonWyden",
             "id": "W000779",
             "thomas_id": "1247",
             "api_uri": "https://api.propublica.org/congress/v1/members/W000779.json",
@@ -517,6 +531,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "C000141"
         },
         "chair": {
+            "message": "@SenBobCorker ",
             "id": "C001071",
             "thomas_id": "1825",
             "api_uri": "https://api.propublica.org/congress/v1/members/C001071.json",
@@ -544,6 +559,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenBobCorker "
         },
         "ranking_member": {
+            "message": "@SenatorCardin",
             "id": "C000141",
             "thomas_id": "174",
             "api_uri": "https://api.propublica.org/congress/v1/members/C000141.json",
@@ -586,6 +602,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "M001111"
         },
         "chair": {
+            "message": "@SenAlexander ",
             "id": "A000360",
             "thomas_id": "1695",
             "api_uri": "https://api.propublica.org/congress/v1/members/A000360.json",
@@ -613,6 +630,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenAlexander "
         },
         "ranking_member": {
+            "message": "@PattyMurray",
             "id": "M001111",
             "thomas_id": "1409",
             "api_uri": "https://api.propublica.org/congress/v1/members/M001111.json",
@@ -655,6 +673,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "C000174"
         },
         "chair": {
+            "message": "@SenRonJohnson ",
             "id": "J000293",
             "thomas_id": "2086",
             "api_uri": "https://api.propublica.org/congress/v1/members/J000293.json",
@@ -682,6 +701,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenRonJohnson "
         },
         "ranking_member": {
+            "message": "@SenatorCarper",
             "id": "C000174",
             "thomas_id": "179",
             "api_uri": "https://api.propublica.org/congress/v1/members/C000174.json",
@@ -724,6 +744,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "B001261"
         },
         "chair": {
+            "message": "@SenJohnHoeven ",
             "id": "H001061",
             "thomas_id": "2079",
             "api_uri": "https://api.propublica.org/congress/v1/members/H001061.json",
@@ -751,6 +772,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenJohnHoeven "
         },
         "ranking_member": {
+            "message": "@SenJohnBarrasso",
             "id": "B001261",
             "thomas_id": "1881",
             "api_uri": "https://api.propublica.org/congress/v1/members/B001261.json",
@@ -793,6 +815,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "S000148"
         },
         "chair": {
+            "message": "@SenShelby ",
             "id": "S000320",
             "thomas_id": "1049",
             "api_uri": "https://api.propublica.org/congress/v1/members/S000320.json",
@@ -820,6 +843,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenShelby "
         },
         "ranking_member": {
+            "message": "@SenSchumer",
             "id": "S000148",
             "thomas_id": "1036",
             "api_uri": "https://api.propublica.org/congress/v1/members/S000148.json",
@@ -862,6 +886,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "S001181"
         },
         "chair": {
+            "message": "@SenatorRisch ",
             "id": "R000584",
             "thomas_id": "1896",
             "api_uri": "https://api.propublica.org/congress/v1/members/R000584.json",
@@ -889,6 +914,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenatorRisch "
         },
         "ranking_member": {
+            "message": "@SenatorShaheen",
             "id": "S001181",
             "thomas_id": "1901",
             "api_uri": "https://api.propublica.org/congress/v1/members/S001181.json",
@@ -931,6 +957,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "S000033"
         },
         "chair": {
+            "message": "@SenatorEnzi ",
             "id": "E000285",
             "thomas_id": "1542",
             "api_uri": "https://api.propublica.org/congress/v1/members/E000285.json",
@@ -958,6 +985,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenatorEnzi "
         },
         "ranking_member": {
+            "message": "@SenSanders",
             "id": "S000033",
             "thomas_id": "1010",
             "api_uri": "https://api.propublica.org/congress/v1/members/S000033.json",
@@ -1000,6 +1028,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "L000174"
         },
         "chair": {
+            "message": "@ChuckGrassley ",
             "id": "G000386",
             "thomas_id": "457",
             "api_uri": "https://api.propublica.org/congress/v1/members/G000386.json",
@@ -1027,6 +1056,7 @@ app.factory('senateCommittees', function() {
             "message": "@ChuckGrassley "
         },
         "ranking_member": {
+            "message": "@SenatorLeahy",
             "id": "L000174",
             "thomas_id": "1383",
             "api_uri": "https://api.propublica.org/congress/v1/members/L000174.json",
@@ -1069,6 +1099,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "B001277"
         },
         "chair": {
+            "message": "@SenatorIsakson ",
             "id": "I000055",
             "thomas_id": "1608",
             "api_uri": "https://api.propublica.org/congress/v1/members/I000055.json",
@@ -1096,6 +1127,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenatorIsakson "
         },
         "ranking_member": {
+            "message": "@SenBlumenthal",
             "id": "B001277",
             "thomas_id": "2076",
             "api_uri": "https://api.propublica.org/congress/v1/members/B001277.json",
@@ -1138,6 +1170,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "I000055"
         },
         "chair": {
+            "message": "@SenatorIsakson ",
             "id": "I000055",
             "thomas_id": "1608",
             "api_uri": "https://api.propublica.org/congress/v1/members/I000055.json",
@@ -1165,6 +1198,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenatorIsakson "
         },
         "ranking_member": {
+            "message": "@SenatorIsakson",
             "id": "I000055",
             "thomas_id": "1608",
             "api_uri": "https://api.propublica.org/congress/v1/members/I000055.json",
@@ -1207,6 +1241,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "C000286"
         },
         "chair": {
+            "message": "@SenatorBurr ",
             "id": "B001135",
             "thomas_id": "153",
             "api_uri": "https://api.propublica.org/congress/v1/members/B001135.json",
@@ -1249,6 +1284,7 @@ app.factory('senateCommittees', function() {
             "ranking_member_id": "M001170"
         },
         "chair": {
+            "message": "@SenatorCollins ",
             "id": "C001035",
             "thomas_id": "1541",
             "api_uri": "https://api.propublica.org/congress/v1/members/C001035.json",
@@ -1276,6 +1312,7 @@ app.factory('senateCommittees', function() {
             "message": "@SenatorCollins "
         },
         "ranking_member": {
+            "message": "@McCaskillOffice",
             "id": "M001170",
             "thomas_id": "1820",
             "api_uri": "https://api.propublica.org/congress/v1/members/M001170.json",
