@@ -166,8 +166,6 @@ $scope.house = houseServices;
 
         $scope.houseMissedPercentAvg = Math.round($scope.houseMissedPercentAvg * 100) / 100
         $scope.houseVotesWithPartyAvg = Math.round($scope.houseVotesWithPartyAvg * 100) / 100
-        console.log("+++ 170 root_ctrl.js $scope.houseMissedPercentAvg: ", $scope.houseMissedPercentAvg)
-        console.log("+++ 171 root_ctrl.js $scope.houseVotesWithPartyAvg: ", $scope.houseVotesWithPartyAvg)
     }
 
     var senateMembersCalculation = function() {
@@ -193,8 +191,6 @@ $scope.house = houseServices;
 
         $scope.senateMissedPercentAvg = Math.round($scope.senateMissedPercentAvg * 100) / 100
         $scope.senateVotesWithPartyAvg = Math.round($scope.senateVotesWithPartyAvg * 100) / 100
-        console.log("+++ 197 root_ctrl.js $scope.senateMissedPercentAvg: ", $scope.senateMissedPercentAvg)
-        console.log("+++ 198 root_ctrl.js $scope.senateVotesWithPartyAvg: ", $scope.senateVotesWithPartyAvg)
     }
 
     houseMembersCalculation();
