@@ -56,8 +56,8 @@
         </div>
       </div>
     </div>
-    <div ng-show="houseSelected">
-      <div ng-repeat="committee in houseCommittees">
+    <div>
+      <div ng-repeat="committee in committeesSelectedData">
         <div class="margin-bottom-large col-md-9 no-padding">
             <h2 class="roboto-font">{{committee.committee.name}}</h2>
             <!-- <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3> -->
@@ -132,12 +132,25 @@
               <td>
                 <div class="bold align-center">
                   {{committee.chair.missed_votes_pct}}%
+                </div>
+                <div class="align-center">
+                  % Missed Votes  -+
                 </div> 
+                <div class="bold align-center">
+                  {{houseMissedPercentAvg - committee.chair.missed_votes_pct | number:2}}%
+                </div>
+
               </td>
               <td>
                 <div class="bold align-center">
                   {{committee.chair.votes_with_party_pct}}%
                 </div>
+                <div class="align-center">
+                  % Votes with Party -+
+                </div> 
+                <div class="bold align-center">
+                  {{houseVotesWithPartyAvg - committee.chair.votes_with_party_pct | number:2}}%
+                </div> 
               </td>
               <td class="align-center">
                 <div class="col-md-offset-2 col-md-4 no-padding">
@@ -151,30 +164,6 @@
                   </a>
                 </div>
               </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <div class="align-center">
-                  % Missed Votes  -+
-                </div> 
-                <div class="bold align-center">
-                  {{houseMissedPercentAvg - committee.chair.missed_votes_pct | number:2}}%
-                </div> 
-              </td>
-              <td>
-                <div class="align-center">
-                  % Votes with Party -+
-                </div> 
-                <div class="bold align-center">
-                  {{houseVotesWithPartyAvg - committee.chair.votes_with_party_pct | number:2}}%
-                </div> 
-              </td>
-              <td></td>
             </tr>
             <tr ng-show="committee.ranking_member.twitter_account">
               <td>
@@ -209,121 +198,45 @@
                   </div>
                 </div>
               </td>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div ng-show="senateSelected">
-      <div ng-repeat="committee in senateCommittees">
-        <div class="margin-bottom-large col-md-9 no-padding">
-            <h2 class="roboto-font">{{committee.committee.name}}</h2>
-            <!-- <h4 class="fauna-font">{{committeeGroups[0].objective}}</h3> -->
-            <a class="fauna-font" href="{{committee.committee.url}}" target="_blank">Read More</a>
-        </div>
-        <table class="table custom-table">
-          <col width="20">
-          <col width="130">
-          <col width="130">
-          <col width="400">
-          <col width="150">
-          <col width="170">
-          <thead>
-              <tr class="tan header fauna-font">
-                <th class="align-center">Position</th>
-                <th class="align-center">Member Name</th>
-                <th class="align-center">Twitter Handle</th>
-                <th class="align-center">Compose Tweet</th>
-                <th class="align-center">Website</th>
-                <th class="align-center">On The Issues Link</th>
-              </tr>
-          </thead>
-          <tbody>
-            <tr>
               <td>
-                Chair
-              </td>
-              <td>{{committee.committee.chair}}</td>
-              <td>
-                <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
-                  @{{committee.chair.twitter_account}}
-                </a>
-              </td>
-              <td>
-                <div>
-                  <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.chair.message" ng-disabled="!userData.signedIn"></textarea>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 margin-top-small">
-                    <div class="small-font align-right">
-                      Characters left: {{140-committee.chair.message.length}}
-                    </div>
-                    <div class="custom-tweet-button align-right margin-top-small" ng-show="userData.signedIn">
-                      <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.chair.message, committee.chair.twitter_account, 'chair', 'senate', $index)">
-                        <i class="btn-icon"></i>
-                        <span class="btn-text">Tweet</span>
-                      </a>
-                    </div>
-                    <div class="custom-tweet-button align-right margin-top-small" ng-show="!userData.signedIn">
-                      <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
-                        <i class="btn-icon"></i>
-                        <span class="btn-text">Login</span>
-                      </a>
-                    </div>
-                  </div>
+                <div class="bold align-center">
+                  {{committee.ranking_member.next_election}}
                 </div>
               </td>
               <td>
-                <a href="committee.chair.url" target="_blank">
-                  {{committee.chair.url}}
-                </a>
-              </td>
-              <td>
-                {{}}
-              </td>
-            </tr>
-            <tr ng-show="committee.ranking_member.twitter_account">
-              <td>
-                Ranking Member
-              </td>
-              <td>{{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}</td>
-              <td>
-                <a href="http://twitter.com/{{committee.ranking_member.twitter_account}}" target="_blank">
-                  @{{committee.ranking_member.twitter_account}}
-                </a>
-              </td>
-              <td>
-                <div>
-                  <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.ranking_member.message" ng-disabled="!userData.signedIn"></textarea>
+                <div class="bold align-center">
+                  {{committee.ranking_member.missed_votes_pct}}%
                 </div>
-                <div class="row">
-                  <div class="col-md-12 margin-top-small">
-                    <div class="small-font align-right">
-                      Characters left: {{140-committee.ranking_member.message.length}}
-                    </div>
-                    <div class="custom-tweet-button align-right margin-top-small" ng-show="userData.signedIn">
-                      <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.ranking_member.message, committee.ranking_member.twitter_account, 'ranking_member', 'senate', $index)">
-                        <i class="btn-icon"></i>
-                        <span class="btn-text">Tweet</span>
-                      </a>
-                    </div>
-                    <div class="custom-tweet-button align-right margin-top-small" ng-show="!userData.signedIn">
-                      <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
-                        <i class="btn-icon"></i>
-                        <span class="btn-text">Login</span>
-                      </a>
-                    </div>
-                  </div>
+                <div class="align-center">
+                  % Missed Votes  -+
+                </div> 
+                <div class="bold align-center">
+                  {{houseMissedPercentAvg - committee.ranking_member.missed_votes_pct | number:2}}%
                 </div>
+
               </td>
               <td>
-                <a href="committee.ranking_member.url" target="_blank">
-                  {{committee.ranking_member.url}}
-                </a>
+                <div class="bold align-center">
+                  {{committee.ranking_member.votes_with_party_pct}}%
+                </div>
+                <div class="align-center">
+                  % Votes with Party -+
+                </div> 
+                <div class="bold align-center">
+                  {{houseVotesWithPartyAvg - committee.ranking_member.votes_with_party_pct | number:2}}%
+                </div> 
               </td>
-              <td>
-                {{}}
+              <td class="align-center">
+                <div class="col-md-offset-2 col-md-4 no-padding">
+                  <a href="http://twitter.com/{{committee.ranking_member.twitter_account}}" target="_blank">
+                    <img class="badge-holder" src="/app/assets/tw.png"></img>
+                  </a>
+                </div>
+                <div class="col-md-6 no-padding">
+                  <a class="align-right" href="http://facebook.com/{{committee.ranking_member.facebook_id}}" target="_blank">
+                    <img class="badge-holder" src="/app/assets/fb.png"></img>
+                  </a>
+                </div>
               </td>
             </tr>
           </tbody>

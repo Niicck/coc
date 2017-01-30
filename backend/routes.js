@@ -8,9 +8,9 @@ var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
-    callback: 'http://localhost:8080/twitterAuthenticated'
-    // callback: 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
-    // callback: 'http://countoncongress.org/twitterAuthenticated'
+    // callback: 'http://localhost:8080/twitterAuthenticated'
+    callback: 'http://ec2-35-163-164-176.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
+
 });
 //Routes
 //Home route

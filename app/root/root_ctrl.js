@@ -2,23 +2,22 @@ var app = angular.module('app');
 
 app.controller('rootController', function($scope, $rootScope, $window, rootServices, houseCommittees, senateCommittees, senateServices, houseServices) {
 
-    $scope.houseCommittees = houseCommittees.committees;
-
-    $scope.senateCommittees = senateCommittees.committees;
-
     if ($window.localStorage["countoncongress-userSignedIn"]) {
         $scope.userData = $rootScope.twitterData;
     }
 
     $scope.selectHouse = function() {
+        $scope.committeesSelectedData = houseCommittees.committees;
+
         $scope.houseSelected = true;
         $scope.senateSelected = false;
         $scope.houseSelectedClass = "btn-primary";
         $scope.senateSelectedClass = "btn-default";
-        $scope.committeeDataSelected = "houseCommittees"
     }
 
     $scope.selectSenate = function() {
+        $scope.committeesSelectedData = senateCommittees.committees;
+
         $scope.houseSelected = false;
         $scope.senateSelected = true;
         $scope.houseSelectedClass = "btn-default";
