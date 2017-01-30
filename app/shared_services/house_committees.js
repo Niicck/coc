@@ -44,7 +44,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MI",
             district: "10",
-            missed_votes_pct: 7.17,
+            missed_votes_pct: "7.17",
             votes_with_party_pct: "94.63"
         },
         ranking_member: {
@@ -72,7 +72,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "PA",
             district: "1",
-            missed_votes_pct: 5.36,
+            missed_votes_pct: "5.36",
             votes_with_party_pct: "95.93"
         }
     }, {
@@ -115,7 +115,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "TX",
             district: "11",
-            missed_votes_pct: 0.00,
+            missed_votes_pct: "0.00",
             votes_with_party_pct: "96.23"
         },
         ranking_member: {
@@ -143,7 +143,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MN",
             district: "7",
-            missed_votes_pct: 1.21,
+            missed_votes_pct: "1.21",
             votes_with_party_pct: "64.40"
         }
     }, {
@@ -186,7 +186,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "KY",
             district: "5",
-            missed_votes_pct: 1.13,
+            missed_votes_pct: "1.13",
             votes_with_party_pct: "94.12"
         },
         ranking_member: {
@@ -214,7 +214,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "NY",
             district: "17",
-            missed_votes_pct: 0.98,
+            missed_votes_pct: "0.98",
             votes_with_party_pct: "96.40"
         }
     }, {
@@ -257,7 +257,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "TX",
             district: "13",
-            missed_votes_pct: 0.91,
+            missed_votes_pct: "0.91",
             votes_with_party_pct: "96.27"
         },
         ranking_member: {
@@ -285,7 +285,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "WA",
             district: "9",
-            missed_votes_pct: 20.15,
+            missed_votes_pct: "20.15",
             votes_with_party_pct: "95.65"
         }
     }, {
@@ -328,7 +328,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MN",
             district: "2",
-            missed_votes_pct: 1.13,
+            missed_votes_pct: "1.13",
             votes_with_party_pct: "95.95"
         },
         ranking_member: {
@@ -356,7 +356,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "VA",
             district: "3",
-            missed_votes_pct: 0.83,
+            missed_votes_pct: "0.83",
             votes_with_party_pct: "96.88"
         }
     }, {
@@ -399,7 +399,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MI",
             district: "6",
-            missed_votes_pct: 0.00,
+            missed_votes_pct: "0.00",
             votes_with_party_pct: "92.00"
         },
         ranking_member: {
@@ -427,7 +427,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "NJ",
             district: "6",
-            missed_votes_pct: 1.89,
+            missed_votes_pct: "1.89",
             votes_with_party_pct: "95.38"
         }
     }, {
@@ -470,7 +470,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "TX",
             district: "5",
-            missed_votes_pct: 1.13,
+            missed_votes_pct: "1.13",
             votes_with_party_pct: "96.72"
         },
         ranking_member: {
@@ -498,7 +498,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "CA",
             district: "43",
-            missed_votes_pct: 7.63,
+            missed_votes_pct: "7.63",
             votes_with_party_pct: "95.54"
         }
     }, {
@@ -541,7 +541,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "CA",
             district: "39",
-            missed_votes_pct: 0.98,
+            missed_votes_pct: "0.98",
             votes_with_party_pct: "94.66"
         },
         ranking_member: {
@@ -569,7 +569,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "NY",
             district: "16",
-            missed_votes_pct: 7.12,
+            missed_votes_pct: "7.12",
             votes_with_party_pct: "95.92"
         }
     }, {
@@ -612,7 +612,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "TX",
             district: "10",
-            missed_votes_pct: 2.11,
+            missed_votes_pct: "2.11",
             votes_with_party_pct: "96.53"
         },
         ranking_member: {
@@ -640,7 +640,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MS",
             district: "2",
-            missed_votes_pct: 3.92,
+            missed_votes_pct: "3.92",
             votes_with_party_pct: "94.89"
         }
     }, {
@@ -683,7 +683,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "UT",
             district: "1",
-            missed_votes_pct: 4.98,
+            missed_votes_pct: "4.98",
             votes_with_party_pct: "95.55"
         },
         ranking_member: {
@@ -711,7 +711,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "AZ",
             district: "3",
-            missed_votes_pct: 10.19,
+            missed_votes_pct: "10.19",
             votes_with_party_pct: "94.62"
         }
     }, {
@@ -754,7 +754,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "UT",
             district: "3",
-            missed_votes_pct: 3.92,
+            missed_votes_pct: "3.92",
             votes_with_party_pct: "94.19"
         },
         ranking_member: {
@@ -782,7 +782,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MD",
             district: "7",
-            missed_votes_pct: 2.94,
+            missed_votes_pct: "2.94",
             votes_with_party_pct: "97.05"
         }
     }, {
@@ -825,7 +825,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "TX",
             district: "32",
-            missed_votes_pct: 1.81,
+            missed_votes_pct: "1.81",
             votes_with_party_pct: "97.23"
         },
         ranking_member: {
@@ -853,7 +853,7 @@ app.factory('houseCommittees', function() {
             total_present: "1",
             state: "NY",
             district: "25",
-            missed_votes_pct: 3.02,
+            missed_votes_pct: "3.02",
             votes_with_party_pct: "95.56"
         }
     }, {
@@ -896,7 +896,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "TX",
             district: "21",
-            missed_votes_pct: 1.96,
+            missed_votes_pct: "1.96",
             votes_with_party_pct: "96.77"
         },
         ranking_member: {
@@ -924,7 +924,7 @@ app.factory('houseCommittees', function() {
             total_present: "2",
             state: "TX",
             district: "30",
-            missed_votes_pct: 7.47,
+            missed_votes_pct: "7.47",
             votes_with_party_pct: "93.96"
         }
     }, {
@@ -967,7 +967,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "OH",
             district: "1",
-            missed_votes_pct: 0.08,
+            missed_votes_pct: "0.08",
             votes_with_party_pct: "97.05"
         },
         ranking_member: {
@@ -995,7 +995,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "NY",
             district: "7",
-            missed_votes_pct: 1.67,
+            missed_votes_pct: "1.67",
             votes_with_party_pct: "95.99"
         }
     }, {
@@ -1038,7 +1038,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "PA",
             district: "15",
-            missed_votes_pct: 0.15,
+            missed_votes_pct: "0.15",
             votes_with_party_pct: "88.44"
         },
         ranking_member: {
@@ -1066,7 +1066,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "CA",
             district: "38",
-            missed_votes_pct: 2.72,
+            missed_votes_pct: "2.72",
             votes_with_party_pct: "96.59"
         }
     }, {
@@ -1109,7 +1109,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "GA",
             district: "6",
-            missed_votes_pct: 3.77,
+            missed_votes_pct: "3.77",
             votes_with_party_pct: "94.20"
         },
         ranking_member: {
@@ -1137,7 +1137,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MD",
             district: "8",
-            missed_votes_pct: 3.02,
+            missed_votes_pct: "3.02",
             votes_with_party_pct: "97.28"
         }
     }, {
@@ -1180,7 +1180,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "VA",
             district: "6",
-            missed_votes_pct: 1.36,
+            missed_votes_pct: "1.36",
             votes_with_party_pct: "96.48"
         },
         ranking_member: {
@@ -1208,7 +1208,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MI",
             district: "13",
-            missed_votes_pct: 5.43,
+            missed_votes_pct: "5.43",
             votes_with_party_pct: "95.37"
         }
     }, {
@@ -1251,7 +1251,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "PA",
             district: "9",
-            missed_votes_pct: 0.98,
+            missed_votes_pct: "0.98",
             votes_with_party_pct: "94.13"
         },
         ranking_member: {
@@ -1279,7 +1279,7 @@ app.factory('houseCommittees', function() {
             total_present: "2",
             state: "OR",
             district: "4",
-            missed_votes_pct: 8.08,
+            missed_votes_pct: "8.08",
             votes_with_party_pct: "91.22"
         }
     }, {
@@ -1322,7 +1322,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "FL",
             district: "1",
-            missed_votes_pct: 3.17,
+            missed_votes_pct: "3.17",
             votes_with_party_pct: "95.09"
         },
         ranking_member: {
@@ -1350,7 +1350,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "FL",
             district: "5",
-            missed_votes_pct: 14.11,
+            missed_votes_pct: "14.11",
             votes_with_party_pct: "94.82"
         }
     }, {
@@ -1393,7 +1393,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "TX",
             district: "8",
-            missed_votes_pct: 4.60,
+            missed_votes_pct: "4.60",
             votes_with_party_pct: "97.23"
         },
         ranking_member: {
@@ -1421,7 +1421,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MI",
             district: "9",
-            missed_votes_pct: 1.58,
+            missed_votes_pct: "1.58",
             votes_with_party_pct: "96.93"
         }
     }, {
@@ -1464,7 +1464,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "CA",
             district: "22",
-            missed_votes_pct: 0.30,
+            missed_votes_pct: "0.30",
             votes_with_party_pct: "95.31"
         },
         ranking_member: {
@@ -1492,7 +1492,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "CA",
             district: "28",
-            missed_votes_pct: 1.51,
+            missed_votes_pct: "1.51",
             votes_with_party_pct: "96.78"
         }
     }, {
@@ -1535,7 +1535,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "SC",
             district: "4",
-            missed_votes_pct: 4.53,
+            missed_votes_pct: "4.53",
             votes_with_party_pct: "96.36"
         },
         ranking_member: {
@@ -1563,7 +1563,7 @@ app.factory('houseCommittees', function() {
             total_present: "0",
             state: "MD",
             district: "7",
-            missed_votes_pct: 2.94,
+            missed_votes_pct: "2.94",
             votes_with_party_pct: "97.05"
         }
     }]

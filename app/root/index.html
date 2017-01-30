@@ -64,7 +64,7 @@
             <a class="fauna-font" href="{{committee.committee.url}}" target="_blank">Read More</a>
         </div>
         <table class="table custom-table">
-          <col width="10">
+          <col width="20">
           <col width="100">
           <col width="80">
           <col width="300">
@@ -133,23 +133,11 @@
                 <div class="bold align-center">
                   {{committee.chair.missed_votes_pct}}%
                 </div> 
-                <div class="align-center">
-                  % missed votes  - +
-                </div> 
-                <div class="bold align-center">
-                  {{houseMissedPercentAvg - committee.chair.missed_votes_pct | number:2}}%
-                </div> 
               </td>
               <td>
                 <div class="bold align-center">
                   {{committee.chair.votes_with_party_pct}}%
                 </div>
-                <div class="align-center">
-                  - % votes with party - +
-                </div> 
-                <div class="bold align-center">
-                  {{houseVotesWithPartyAvg - committee.chair.votes_with_party_pct | number:2}}%
-                </div> 
               </td>
               <td class="align-center">
                 <div class="col-md-offset-2 col-md-4 no-padding">
@@ -162,8 +150,31 @@
                     <img class="badge-holder" src="/app/assets/fb.png"></img>
                   </a>
                 </div>
-
               </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                <div class="align-center">
+                  % Missed Votes  -+
+                </div> 
+                <div class="bold align-center">
+                  {{houseMissedPercentAvg - committee.chair.missed_votes_pct | number:2}}%
+                </div> 
+              </td>
+              <td>
+                <div class="align-center">
+                  % Votes with Party -+
+                </div> 
+                <div class="bold align-center">
+                  {{houseVotesWithPartyAvg - committee.chair.votes_with_party_pct | number:2}}%
+                </div> 
+              </td>
+              <td></td>
             </tr>
             <tr ng-show="committee.ranking_member.twitter_account">
               <td>
@@ -198,15 +209,6 @@
                   </div>
                 </div>
               </td>
-<!--               <td>
-                <a href="committee.ranking_member.url" target="_blank">
-                  {{committee.ranking_member.url}}
-                </a> -->
-              </td>
-            </tr>
-            <tr>
-              <td>
-                {{committee.ranking_member.facebook_account}}
               </td>
             </tr>
           </tbody>
@@ -221,7 +223,7 @@
             <a class="fauna-font" href="{{committee.committee.url}}" target="_blank">Read More</a>
         </div>
         <table class="table custom-table">
-          <col width="75">
+          <col width="20">
           <col width="130">
           <col width="130">
           <col width="400">
