@@ -10,7 +10,6 @@ var twitter = new twitterAPI({
     consumerSecret: secrets.consumerSecret,
     // callback: 'http://localhost:8080/twitterAuthenticated'
     callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
-
 });
 //Routes
 //Home route
@@ -86,8 +85,7 @@ router.get('/twitterdata', function(request, response) {
 //Send tweet route
 router.post('/sendTweet', function(request, response) {
     console.log("+++ 85 routes.js /sendTweet")
-    twitter.statuses("update", 
-        { status: request.body.tweet },
+    twitter.statuses("update", { status: request.body.tweet },
         request.session.twitterAccess.accessToken,
         request.session.twitterAccess.accessTokenSecret,
         function(error, data, res) {
