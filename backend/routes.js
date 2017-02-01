@@ -2,7 +2,6 @@ var router = require('express').Router();
 var path = require('path');
 
 var secrets = require('./secrets.js');
-
 // Twitter integration
 var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
@@ -10,8 +9,10 @@ var twitter = new twitterAPI({
     consumerSecret: secrets.consumerSecret,
     // callback: 'http://localhost:8080/twitterAuthenticated'
     // callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
-    callback: 'http://reachthehill.org/twitterAuthenticated'
+    callback: secrets.address + '/twitterAuthenticated'
 });
+
+console.log("+++ 15 routes.js twitter.callback: ", twitter.callback)
 //Routes
 //Home route
 router.get('/', function(request, response) {
@@ -61,8 +62,9 @@ router.get('/twitterlogin', function(request, response) {
 });
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
-    console.log("+++ 62 routes.js at /twitterAuthenticated")
-    console.log("+++ 64 routes.js request.session: ", request.session)
+    console.log("+++ 64 routes.j4 at /twitterAuthenticated")
+    console.log("+++ 65 routes.js request: ", request)
+    console.log("+++ 66 routes.j6 request: ", request.session)
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
             console.log(error);
