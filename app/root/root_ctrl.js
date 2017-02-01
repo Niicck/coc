@@ -32,7 +32,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
     var getTwitterData = function() {
         rootServices.userData()
             .then(function(twitterData) {
-                $rootScope.twitterData = twitterData.data.twitterData;
+                $scope.userData = twitterData.data.twitterData;
             })
     }
 
