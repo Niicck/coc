@@ -51,6 +51,7 @@ router.get('/twitterlogin', function(request, response) {
                 request.session.twitterRequest = {};
                 request.session.twitterData = {};
                 request.session.twitterRequest.twitterRequestToken = requestToken;
+                console.log("+++ 54 routes.js request.session.twitterRequest.twitterRequestToken: ", request.session.twitterRequest.twitterRequestToken)
                 request.session.twitterRequest.twitterRequestTokenSecret = requestTokenSecret;
                 request.session.twitterData.signedIn = true;
                 response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
@@ -60,7 +61,8 @@ router.get('/twitterlogin', function(request, response) {
 });
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
-    console.log("+++ 62 routes.js at /twitterAuthenticated")
+    console.log("+++ 63 routes.js at /twitterAuthenticated")
+    console.log("+++ 64 routes.js request: ", request.session)
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
             console.log(error);
