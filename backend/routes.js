@@ -10,9 +10,9 @@ var twitter = new twitterAPI({
     callback: secrets.address + '/twitterAuthenticated'
 });
 
-console.log("+++ 15 routes.js twitter.callback: ", twitter.callback)
-    //Routes
-    //Home route
+console.log("+++ 15 routes.js twitter.callback: ", twitter.callback);
+//Routes
+//Home route
 router.get('/', function(request, response) {
     if (request.session.twitterData && request.session.twitterData.signedIn) {
         console.log("server.js - Serve index page - User Signed in")
