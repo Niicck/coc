@@ -1,6 +1,7 @@
 var app = angular.module('app');
 
 app.factory('houseServices', function() {
+    
     var services = {};
 
     services.committees = [{
