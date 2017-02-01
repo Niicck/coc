@@ -7,8 +7,6 @@ var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
-    // callback: 'http://localhost:8080/twitterAuthenticated'
-    // callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
     callback: secrets.address + '/twitterAuthenticated'
 });
 
@@ -108,6 +106,7 @@ router.get('/logout', function(request, response) {
     request.session.destroy();
     if (!request.session) {
         console.log("Logged out")
+        console.log("+++ 109 routes.js request.session: ", request.session)
         response.sendStatus(200)
     } else {
         console.log("Not logged out")
