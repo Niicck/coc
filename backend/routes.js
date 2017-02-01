@@ -9,8 +9,8 @@ var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
     // callback: 'http://localhost:8080/twitterAuthenticated'
-    // callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
-    callback: 'http://reachthehill.org/twitterAuthenticated'
+    callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
+    // callback: 'http://reachthehill.org/twitterAuthenticated'
 
 });
 //Routes
