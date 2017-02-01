@@ -53,6 +53,7 @@ router.get('/twitterlogin', function(request, response) {
                 request.session.twitterRequest.twitterRequestTokenSecret = requestTokenSecret;
                 request.session.twitterData.signedIn = true;
                 request.session.save();
+                console.log("+++ 56 routes.js request.session: ", request.session)
                 response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
             }
         });
