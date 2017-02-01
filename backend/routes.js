@@ -42,15 +42,19 @@ router.get('/twitterlogin', function(request, response) {
         twitter.getRequestToken(function(error, requestToken, requestTokenSecret, results) {
             if (error) {
                 console.log("Error getting OAuth request token : " + error);
-                request.session.twitterData.signedIn = false;
+                request.session.twitterData = {
+                    signedIn: false
+                };
                 response.sendStatus(404)
             } else {
                 console.log("+++ 49 routes.js /twitterlogin success")
-                request.session.twitterRequest = {};
-                request.session.twitterData = {};
-                request.session.twitterRequest.twitterRequestToken = requestToken;
-                request.session.twitterRequest.twitterRequestTokenSecret = requestTokenSecret;
-                request.session.twitterData.signedIn = true;
+                request.session.twitterRequest = {
+                    twitterRequestToken: requestToken,
+                    twitterRequestTokenSecret: requestTokenSecret
+                }
+                request.session.twitterData = {
+                    signedIn: true
+                };
                 request.session.save();
                 console.log("+++ 56 routes.js request.session: ", request.session)
                 response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
