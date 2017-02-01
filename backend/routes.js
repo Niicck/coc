@@ -11,8 +11,8 @@ var twitter = new twitterAPI({
 });
 
 console.log("+++ 15 routes.js twitter.callback: ", twitter.callback)
-//Routes
-//Home route
+    //Routes
+    //Home route
 router.get('/', function(request, response) {
     if (request.session.twitterData && request.session.twitterData.signedIn) {
         console.log("server.js - Serve index page - User Signed in")
@@ -47,7 +47,7 @@ router.get('/twitterlogin', function(request, response) {
                 };
                 response.sendStatus(404)
             } else {
-                console.log("+++ 49 routes.js /twitterlogin success")
+                console.log("+++ 50 routes.js /twitterlogin success")
                 request.session.twitterRequest = {
                     twitterRequestToken: requestToken,
                     twitterRequestTokenSecret: requestTokenSecret
@@ -56,7 +56,7 @@ router.get('/twitterlogin', function(request, response) {
                     signedIn: true
                 };
                 request.session.save();
-                console.log("+++ 56 routes.js request.session: ", request.session)
+                console.log("+++ 59 routes.js request.session: ", request.session)
                 response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
             }
         });
@@ -64,31 +64,29 @@ router.get('/twitterlogin', function(request, response) {
 });
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
-    console.log("+++ 64 routes.j4 at /twitterAuthenticated")
-    console.log("+++ 65 routes.js request: ", request)
-    console.log("+++ 66 routes.j6 request: ", request.session)
+    console.log("+++ 67 routes.j4 at /twitterAuthenticated")
+    console.log("+++ 68 routes.j6 request: ", request.session)
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
             console.log(error);
         } else {
-            console.log("+++ 67 routes.js Success at /twitterAuthenticated. Redirect to /")
-            request.session.twitterAccess = {}
-            request.session.twitterAccess.accessToken = accessToken;
-            request.session.twitterAccess.accessTokenSecret = accessTokenSecret;
+            console.log("+++ 73 routes.js Success at /twitterAuthenticated. Redirect to /")
+            request.session.twitterAccess = {
+                accessToken: accessToken,
+                accessTokenSecret: accessTokenSecret
+            };
             request.session.twitterData.twitterUsername = results.screen_name;
             request.session.twitterData.userId = results.user_id;
-            console.log("+++ 72 routes.js results: ", results)
+            console.log("+++ 80 routes.js results: ", results)
             response.redirect('/')
         }
     })
 });
 //Get twitter data for frontend verification
 router.get('/twitterdata', function(request, response) {
-    console.log("+++ 78 routes.js /twitterdata")
-    console.log("+++ 79 routes.js request.session.twitterData: ", request.session.twitterData)
-    response.status(200).send({
-        twitterData: request.session.twitterData
-    })
+    console.log("+++ 87 routes.js /twitterdata")
+    console.log("+++ 88 routes.js request.session.twitterData: ", request.session.twitterData)
+    response.status(200).send({ twitterData: request.session.twitterData })
 });
 //Send tweet route
 router.post('/sendTweet', function(request, response) {

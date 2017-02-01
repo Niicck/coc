@@ -13,8 +13,8 @@ module.exports.app = app;
 
 app.use(session({
     secret: secrets.sessionSecret,
-    resave: false,
-    saveUninitialized: false,
+    resave: true,
+    saveUninitialized: true,
     cookie: {
         secure: false,
         httpOnly: false,
