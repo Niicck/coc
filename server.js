@@ -13,7 +13,7 @@ module.exports.app = app;
 
 app.use(session({
     secret: secrets.sessionSecret,
-    resave: true,
+    resave: false,
     saveUninitialized: false,
 }));
 
