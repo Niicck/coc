@@ -11,10 +11,6 @@ var twitter = new twitterAPI({
     callback: secrets.address + '/twitterAuthenticated'
 });
 
-var corsOptions = {
-    credentials: true
-}
-
 //Routes
 //Home route
 router.get('/', function(request, response) {
@@ -67,7 +63,7 @@ router.get('/twitterlogin', function(request, response) {
     }
 });
 //Route hit when arriving back from Twitter authentication page
-router.get('/twitterAuthenticated', cors(corsOptions), function(request, response) {
+router.get('/twitterAuthenticated', function(request, response) {
     console.log("+++ 67 routes.j4 at /twitterAuthenticated")
     console.log("+++ 68 routes.j6 request: ", request.session)
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
