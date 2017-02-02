@@ -65,11 +65,6 @@ router.get('/twitterlogin', function(request, response) {
 });
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
-    request.session.regenerate(function() {
-        request.session.user = newUser;
-        response.redirect('/app');
-        console.log("Request session user saved as: " + request.session.user);
-    })
     console.log("+++ 67 routes.js at /twitterAuthenticated")
     console.log("+++ 68 routes.js request.sessionID: ", request.sessionID)
     console.log("+++ 68 routes.js request: ", request.session)
