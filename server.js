@@ -18,7 +18,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     cookie: {
-        domain: 'reachthehill.org',
         secure: false,
         maxAge: 1000 * 60 * 60 * 24 * 365
     }
