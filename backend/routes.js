@@ -34,6 +34,9 @@ router.get('/', function(request, response) {
     }
 });
 //login to Twitter route
+
+var rToken;
+var rTokenSecret;
 router.get('/twitterlogin', function(request, response) {
     console.log("+++ 37 routes.js at /twitterlogin")
     if (request.session.twitterData && request.session.twitterData.signedIn) {
@@ -58,7 +61,9 @@ router.get('/twitterlogin', function(request, response) {
                 };
                 request.session.save();
                 console.log("+++ 59 routes.js request.session: ", request.session)
-                console.log("+++ 61 routes.js response: ", response)
+                // res.redirect('https://www.twitter.com/oauth/authenticate?oauth_token=' + requestToken)
+                rToken = requestToken;
+                rTokenSecret = requestTokenSecret;
                 response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
             }
         });
@@ -69,7 +74,8 @@ router.get('/twitterAuthenticated', function(request, response) {
     console.log("+++ 67 routes.js at /twitterAuthenticated")
     console.log("+++ 70 routes.js response: ", response)
     console.log("+++ 68 routes.js request: ", request.session)
-    twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+    twitter.getAccessToken(rToken, rTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
+    // twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
             console.log(error);
         } else {
@@ -83,6 +89,8 @@ router.get('/twitterAuthenticated', function(request, response) {
             console.log("+++ 80 routes.js results: ", results)
             response.redirect('/')
         }
+        rToken = null;
+        rTokenSecret = null;
     })
 });
 //Get twitter data for frontend verification
