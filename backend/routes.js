@@ -59,7 +59,7 @@ router.get('/twitterlogin', function(request, response) {
                     };
                     request.session.save();
                     response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
-                }
+                })
             }
         });
     }
