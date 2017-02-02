@@ -8,8 +8,8 @@ var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
-    callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
-    // callback: secrets.address + '/twitterAuthenticated'
+    // callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
+    callback: secrets.address + '/twitterAuthenticated'
 });
 
 //Routes
@@ -48,17 +48,18 @@ router.get('/twitterlogin', function(request, response) {
                 };
                 response.sendStatus(404)
             } else {
-                console.log("+++ 50 routes.js /twitterlogin success")
-                request.session.twitterRequest = {
-                    twitterRequestToken: requestToken,
-                    twitterRequestTokenSecret: requestTokenSecret
+                request.session.regenerate(function() {
+                    console.log("+++ 50 routes.js /twitterlogin success")
+                    request.session.twitterRequest = {
+                        twitterRequestToken: requestToken,
+                        twitterRequestTokenSecret: requestTokenSecret
+                    }
+                    request.session.twitterData = {
+                        signedIn: true
+                    };
+                    request.session.save();
+                    response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
                 }
-                request.session.twitterData = {
-                    signedIn: true
-                };
-                request.session.save();
-                console.log("+++ 60 routes.js request.sessionID: ", request.sessionID)
-                response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
             }
         });
     }
@@ -66,7 +67,6 @@ router.get('/twitterlogin', function(request, response) {
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
     console.log("+++ 67 routes.js at /twitterAuthenticated")
-    console.log("+++ 68 routes.js request.sessionID: ", request.sessionID)
     console.log("+++ 68 routes.js request: ", request.session)
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
