@@ -57,6 +57,7 @@ router.get('/twitterlogin', function(request, response) {
                     signedIn: true
                 };
                 request.session.save();
+                console.log("+++ 60 routes.js request.sessionID: ", request.sessionID)
                 response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
             }
         });

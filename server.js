@@ -14,15 +14,8 @@ app.set('trust proxy', 1);
 
 app.use(session({
     secret: secrets.sessionSecret,
-    resave: true,
-    saveUninitialized: true,
-    proxy: true,
-    cookie: {
-        path: '/', 
-        httpOnly: false, 
-        secure: false,
-        maxAge: null
-        // maxAge: 1000 * 60 * 60 * 24 * 365
+    cookie: { 
+        maxAge: 1000 * 60 * 60 * 24 * 365
     }
 }));
 
@@ -30,7 +23,7 @@ app.use(session({
 app.use(cors())
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 // Serving static files from main directory.
 app.use('/', express.static(__dirname));
