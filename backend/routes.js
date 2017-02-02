@@ -65,6 +65,7 @@ router.get('/twitterlogin', function(request, response) {
 //Route hit when arriving back from Twitter authentication page
 router.get('/twitterAuthenticated', function(request, response) {
     console.log("+++ 67 routes.js at /twitterAuthenticated")
+    console.log("+++ 68 routes.js request.sessionID: ", request.sessionID)
     console.log("+++ 68 routes.js request: ", request.session)
     twitter.getAccessToken(request.session.twitterRequest.twitterRequestToken, request.session.twitterRequest.twitterRequestTokenSecret, request.query.oauth_verifier, function(error, accessToken, accessTokenSecret, results) {
         if (error) {
