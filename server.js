@@ -4,7 +4,6 @@ var logger = require('morgan');
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-// var cookieSession = require('cookie-session')
 var secrets = require('./backend/secrets.js');
 var router = require('./backend/routes.js');
 
@@ -18,19 +17,13 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     cookie: {
+        path: '/', 
+        httpOnly: true, 
         secure: false,
-        maxAge: 1000 * 60 * 60 * 24 * 365
+        maxAge: null
+        // maxAge: 1000 * 60 * 60 * 24 * 365
     }
 }));
-
-// app.use(cookieSession({
-//   name: 'session',
-//   secret: secrets.sessionSecret,
-//   // Cookie Options
-//   maxAge: 1000 * 60 * 60 * 24 * 365
-// }))
-
-
 
 //middleware
 app.use(cors())
