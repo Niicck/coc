@@ -1,10 +1,10 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var cors = require('cors')
+var cors = require('cors');
 var bodyParser = require('body-parser');
-var session = require('express-session');
-var keys = require('express-session');
+// var session = require('express-session');
+var cookieSession = require('cookie-session')
 var secrets = require('./backend/secrets.js');
 var router = require('./backend/routes.js');
 
@@ -13,15 +13,24 @@ module.exports.app = app;
 
 app.set('trust proxy', 1);
 
-app.use(session({
-    secret: secrets.sessionSecret,
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-        secure: false,
-        maxAge: 1000 * 60 * 60 * 24 * 365
-    }
-}));
+// app.use(session({
+//     secret: secrets.sessionSecret,
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: {
+//         secure: false,
+//         maxAge: 1000 * 60 * 60 * 24 * 365
+//     }
+// }));
+
+app.use(cookieSession({
+  name: 'session',
+  secret: secrets.sessionSecret,
+  // Cookie Options
+  maxAge: 1000 * 60 * 60 * 24 * 365
+}))
+
+
 
 //middleware
 app.use(cors())
