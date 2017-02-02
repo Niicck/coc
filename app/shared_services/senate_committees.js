@@ -1086,7 +1086,7 @@ app.factory('senateCommittees', function() {
     }, {
         "committee": {
             "id": "SSVA",
-            "name": "Committee on Veterans&#39; Affairs",
+            "name": "Committee on Veterans' Affairs",
             "url": "http://www.veterans.senate.gov/",
             "democratic_rss": "",
             "republican_rss": "",

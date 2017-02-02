@@ -18,7 +18,7 @@ router.get('/', function(request, response) {
         console.log("server.js - Serve index page - User Signed in")
         twitter.verifyCredentials(request.session.twitterAccess.accessToken, request.session.twitterAccess.accessTokenSecret, function(error, data, res) {
             if (error) {
-                console.log("+++ 56 server.js error: ", error)
+                console.log("+++ 21 server.js error: ", error)
             } else {
                 response.status(202)
                     .sendFile(path.resolve("app/index.html"));
@@ -34,9 +34,9 @@ router.get('/', function(request, response) {
 });
 //login to Twitter route
 router.get('/twitterlogin', function(request, response) {
-    console.log("+++ 38 routes.js at /twitterlogin")
+    console.log("+++ 37 routes.js at /twitterlogin")
     if (request.session.twitterData && request.session.twitterData.signedIn) {
-        console.log("+++ 40 routes.js twitter data present already, redirect to /")
+        console.log("+++ 39 routes.js twitter data present already, redirect to /")
         response.redirect('/')
     } else {
         twitter.getRequestToken(function(error, requestToken, requestTokenSecret, results) {
@@ -90,7 +90,7 @@ router.get('/twitterdata', function(request, response) {
 });
 //Send tweet route
 router.post('/sendTweet', function(request, response) {
-    console.log("+++ 85 routes.js /sendTweet")
+    console.log("+++ 93 routes.js /sendTweet")
     twitter.statuses("update", { status: request.body.tweet },
         request.session.twitterAccess.accessToken,
         request.session.twitterAccess.accessTokenSecret,
@@ -108,13 +108,12 @@ router.get('/logout', function(request, response) {
     request.session.destroy();
     if (!request.session) {
         console.log("Logged out")
-        console.log("+++ 109 routes.js request.session: ", request.session)
+        console.log("+++ 111 routes.js request.session: ", request.session)
         response.sendStatus(200)
     } else {
         console.log("Not logged out")
         response.sendStatus(400)
     };
-
 })
 
 module.exports = router;

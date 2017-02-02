@@ -1278,7 +1278,7 @@ app.factory('houseCommittees', function() {
      {
           "committee": {
                "id": "HSVR",
-               "name": "Committee on Veterans&#39; Affairs",
+               "name": "Committee on Veterans' Affairs",
                "url": "http://veterans.house.gov/",
                "democratic_rss": "",
                "republican_rss": "",
