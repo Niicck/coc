@@ -8,9 +8,9 @@ var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
-    callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
+    // callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
     // callback: secrets.address + '/twitterAuthenticated'
-    // callback: 'http://localhost:8080/twitterAuthenticated'
+    callback: 'http://52.35.123.113/twitterAuthenticated'
 });
 
 //Routes
