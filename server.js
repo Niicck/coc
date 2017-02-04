@@ -15,14 +15,30 @@ app.set('trust proxy', 1);
 // Serving static files from main directory.
 app.use('/', express.static(__dirname));
 
+// app.use(session({
+//     secret: secrets.sessionSecret,
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: { 
+//         maxAge: 1000 * 60 * 60 * 24 * 365
+//     }
+// }));
+
+
 app.use(session({
-    secret: secrets.sessionSecret,
-    resave: true,
-    saveUninitialized: true,
-    cookie: { 
-        maxAge: 1000 * 60 * 60 * 24 * 365
-    }
-}));
+  "name": "rth",
+  "secret": secrets.sessionSecret,
+  "rolling": true,
+  "saveUninitialized": true,
+  "resave": false,
+  "cookie": {
+    "maxAge": 20000
+  },
+  "storeParams": {
+    "host": "reachthehill",
+    "port": "8080"
+  }
+}))
 
 //middleware
 app.use(cors())
