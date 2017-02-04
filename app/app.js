@@ -11,9 +11,9 @@ var sharedDirectives = angular.module('sharedDirectives', []);
 
 app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
     // $rootScope.serverUrl = 'http://localhost:8080';
-    // $rootScope.serverUrl = 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080';
+    $rootScope.serverUrl = 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080';
     // $rootScope.serverUrl = 'http://www.reachthehill.org';
-    $rootScope.serverUrl = 'http://52.35.123.113';
+    // $rootScope.serverUrl = 'http://52.35.123.113';
 
     $scope.alert = alert;
 
