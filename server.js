@@ -25,7 +25,14 @@ app.use('/', express.static(__dirname));
 // }));
 
 //middleware
-app.use(cors())
+// app.use(cors())
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
+    res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
+    next();
+});
 
 app.use(session({
   "name": "reachtthehill",
