@@ -10,7 +10,7 @@ var app = angular.module('app', [
 var sharedDirectives = angular.module('sharedDirectives', []);
 
 app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
-    // $rootScope.serverUrl = 'http://localhost:8080';
+    $rootScope.serverUrl = 'http://localhost:8080';
     // $rootScope.serverUrl = 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080';
     $rootScope.serverUrl = 'http://reachthehill.org';
 
