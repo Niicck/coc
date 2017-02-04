@@ -19,7 +19,7 @@ app.use('/', express.static(__dirname));
 // app.use(cors())
 
 app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'http://twitter.com/');
+    res.header('Access-Control-Allow-Origin', 'http://www.reachthehill.org');
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
