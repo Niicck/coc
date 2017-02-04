@@ -26,7 +26,7 @@ app.use('/', express.static(__dirname));
 
 
 app.use(session({
-  "name": "rth",
+  "name": "reachtthehill",
   "secret": secrets.sessionSecret,
   "rolling": false,
   "saveUninitialized": true,
