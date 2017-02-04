@@ -30,12 +30,12 @@ app.use(session({
   "secret": secrets.sessionSecret,
   "rolling": false,
   "saveUninitialized": true,
-  "resave": false,
+  "resave": true,
   "cookie": {
     "maxAge": 1000 * 60 * 60 * 24 * 365
   },
   "storeParams": {
-    "host": "reachthehill",
+    "host": "localhost",
     "port": "8080"
   }
 }))
