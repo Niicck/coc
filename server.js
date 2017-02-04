@@ -28,11 +28,11 @@ app.use('/', express.static(__dirname));
 app.use(session({
   "name": "rth",
   "secret": secrets.sessionSecret,
-  "rolling": true,
+  "rolling": false,
   "saveUninitialized": true,
   "resave": false,
   "cookie": {
-    "maxAge": 20000
+    "maxAge": 1000 * 60 * 60 * 24 * 365
   },
   "storeParams": {
     "host": "reachthehill",
