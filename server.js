@@ -19,9 +19,10 @@ app.use('/', express.static(__dirname));
 // app.use(cors())
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "reachthehill.org");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
-    res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
+    res.header('Access-Control-Allow-Origin', 'http://reachthehill.org/');
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
@@ -29,7 +30,7 @@ app.use(session({
     secret: secrets.sessionSecret,
     resave: true,
     saveUninitialized: true,
-    cookie: { 
+    cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 365
     }
 }));
