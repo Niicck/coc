@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var secrets = require('./backend/secrets.js');
 var router = require('./backend/routes.js');
-var livereload  = require("connect-livereload");
 
 var app = express();
 module.exports.app = app;
@@ -18,14 +17,6 @@ app.use('/', express.static(__dirname));
 
 //middleware
 app.use(cors())
-
-// app.use(function(req, res, next) {
-//     res.header('Access-Control-Allow-Origin', 'http://reachthehill.org');
-//     res.header("Access-Controll-Allow-Credentials", true);
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
 
 app.use(session({
     secret: secrets.sessionSecret,
@@ -40,7 +31,6 @@ app.use(livereload())
 
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set up backend routes
 app.use("/", router);
