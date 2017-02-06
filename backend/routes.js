@@ -8,8 +8,8 @@ var twitterAPI = require('node-twitter-api');
 var twitter = new twitterAPI({
     consumerKey: secrets.consumerKey,
     consumerSecret: secrets.consumerSecret,
-    callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
-    // callback: secrets.address + '/twitterAuthenticated'
+    // callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
+    callback: secrets.address + '/twitterAuthenticated'
     // callback: 'http://localhost:8080/twitterAuthenticated'
     // callback: 'http://52.35.123.113/twitterAuthenticated'
     
@@ -55,7 +55,7 @@ router.get('/twitterlogin', function(request, response) {
                     console.log("+++ 50 routes.js /twitterlogin success")
                     request.session.twitterRequest = {
                         twitterRequestToken: requestToken,
-                        twitterRequestTokenSecret: requestTokenSecret
+                        twitterRequestTokenSecret: twitterRequestTokenSecret
                     }
                     request.session.twitterData = {
                         signedIn: true
