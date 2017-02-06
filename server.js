@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var secrets = require('./backend/secrets.js');
 var router = require('./backend/routes.js');
+var livereload  = require("connect-livereload");
 
 var app = express();
 module.exports.app = app;
@@ -34,6 +35,8 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 * 365
     }
 }));
+
+app.use(livereload())
 
 app.set('port', process.env.PORT || 8080);
 app.use(bodyParser.json());

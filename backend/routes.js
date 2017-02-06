@@ -55,7 +55,7 @@ router.get('/twitterlogin', function(request, response) {
                     console.log("+++ 50 routes.js /twitterlogin success")
                     request.session.twitterRequest = {
                         twitterRequestToken: requestToken,
-                        twitterRequestTokenSecret: twitterRequestTokenSecret
+                        twitterRequestTokenSecret: requestTokenSecret
                     }
                     request.session.twitterData = {
                         signedIn: true
