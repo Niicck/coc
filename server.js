@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var secrets = require('./backend/secrets.js');
 var router = require('./backend/routes.js');
+var cookieParser = require('cookie-parser');
 
 var app = express();
 module.exports.app = app;
@@ -17,6 +18,8 @@ app.use('/', express.static(__dirname));
 
 //middleware
 app.use(cors())
+
+app.use(cookieParser());
 
 app.use(session({
     secret: secrets.sessionSecret,

@@ -1,6 +1,7 @@
 var router = require('express').Router();
 var path = require('path');
 var cors = require('cors');
+var session = require('express-session');
 
 var secrets = require('./secrets.js');
 // Twitter integration
@@ -61,6 +62,7 @@ router.get('/twitterlogin', function(request, response) {
                     };
                     request.session.test = "test";
                     request.session.save();
+                    console.log("+++ 65 routes.js request.session.save: ", request.session.save)
                     // response.redirect("https://twitter.com/oauth/authorize?oauth_token="+request.session.twitterRequest.twitterRequestToken);
                     response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
                 })
