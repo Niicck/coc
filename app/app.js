@@ -17,7 +17,36 @@ app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
     $scope.alert = alert;
 
     $scope.confirm = confirm;
-    $scope.currentYear = moment().format('YYYY')
+    $scope.currentYear = moment().format('YYYY');
+
+
+    $scope.loginToTwitter = function() {
+        console.log("+++ 40 root_ctrl.js loginToTwitter")
+        rootServices.loginToTwitter()
+            .then(function(response) {
+                if (response.data.requestToken) {
+                    $window.location.href = 'https://www.twitter.com/oauth/authenticate?oauth_token=' + response.data.requestToken
+                } else {
+                    getTwitterData();
+                }
+            })
+    }
+
+    $scope.logout = function() {
+        function onYes() {
+            rootServices.logout()
+                .then(function(result) {
+                    if (result.status) {
+                        delete $rootScope.twitterData;
+                        $scope.userData = {};
+                        $scope.userData.signedIn = false;
+                        window.localStorage.setItem('countoncongress-username', null);
+                        window.localStorage.setItem('countoncongress-userSignedIn', false);
+                    }
+                })
+        }
+        $scope.confirm.initialize('Are you sure you want to logout?', onYes);
+    }
 })
 
 //Main route serving site template

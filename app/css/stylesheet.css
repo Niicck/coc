@@ -170,9 +170,8 @@ h1::first-letter {
 /*MAIN SECTION*/
 
 .seal {
-    margin: 20px;
-    width: 121px;
-    height: 121px;
+    width: 50px;
+    height: 50px;
 }
 
 .main-section {
