@@ -27,7 +27,16 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
         $scope.senateSelectedClass = "btn-primary";
     }
 
-    $scope.selectHouse()
+    $scope.selectHouse();
+
+
+    // $scope.openCommSection = function(index) {
+    //     console.log("+++ 34 root_ctrl.js index: ", index)
+    // }
+
+
+
+
 
     var getTwitterData = function() {
         rootServices.userData()
@@ -36,17 +45,6 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
             })
     }
 
-    $scope.loginToTwitter = function() {
-        console.log("+++ 40 root_ctrl.js loginToTwitter")
-        rootServices.loginToTwitter()
-            .then(function(response) {
-                if (response.data.requestToken) {
-                    $window.location.href = 'https://www.twitter.com/oauth/authenticate?oauth_token=' + response.data.requestToken
-                } else {
-                    getTwitterData();
-                }
-            })
-    }
 
     $scope.sendTweet = function(message, twitterHandle, position, index) {
         rootServices.sendTweet(message)
@@ -59,22 +57,6 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
                 var response = JSON.parse(result.data.data)
                 $scope.alert.addAlert(response.errors[0].message, 'danger');
             })
-    }
-
-    $scope.logout = function() {
-        function onYes() {
-            rootServices.logout()
-                .then(function(result) {
-                    if (result.status) {
-                        delete $rootScope.twitterData;
-                        $scope.userData = {};
-                        $scope.userData.signedIn = false;
-                        window.localStorage.setItem('countoncongress-username', null);
-                        window.localStorage.setItem('countoncongress-userSignedIn', false);
-                    }
-                })
-        }
-        $scope.confirm.initialize('Are you sure you want to logout?', onYes);
     }
 
     getTwitterData();
