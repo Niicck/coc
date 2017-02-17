@@ -186,10 +186,6 @@ h1::first-letter {
 /*MAIN SECTION*/
 
 
-/*.main-table {
-    width: 100%
-}*/
-
 .comm-header {
     background-color: gray;
 }
@@ -213,6 +209,10 @@ h1::first-letter {
     display: table-cell;
     margin: 0;
     vertical-align: middle;
+}
+
+.comm-description {
+    font-size: 20px;
 }
 
 .text-area {

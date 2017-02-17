@@ -29,9 +29,14 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
 
     $scope.selectHouse();
 
-    $scope.openCommSection = 0;
+    $scope.commSection = 0;
+    
     $scope.toggleCommSection = function(index) {
-        $scope.openCommSection = index;
+        $scope.commSection = index;
+    }
+
+    $scope.toggleDescription = function(index) {
+        console.log("+++ 39 root_ctrl.js toggleDescription")
     }
 
 

@@ -24,23 +24,28 @@
             </p>
           </div>
           <div class="col-sm-1 comm-header-section">
-            <i class="fa fa-caret-right fa-2x comm-carat" aria-hidden="true" ng-show="openCommSection !== $index"></i>
-            <i class="fa fa-caret-down fa-2x comm-carat" aria-hidden="true" ng-show="openCommSection === $index"></i>
+            <i class="fa fa-caret-right fa-2x comm-carat" aria-hidden="true" ng-show="commSection !== $index"></i>
+            <i class="fa fa-caret-down fa-2x comm-carat" aria-hidden="true" ng-show="commSection === $index"></i>
           </div>
         </div>
       </div>
 
-      <div class="comm-data" ng-show="openCommSection === $index">
-        <div class="comm-description">
-          <p>
-            {{committee.committee.ranking_member_id}}
-          </p>
-        </div>
-        <div class="comm-chair">
-          {{committee.chair.first_name}} {{committee.chair.last_name}}
-        </div>
-        <div class="comm-ranking">
-          {{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}
+      <div class="comm-data" ng-show="commSection === $index">
+        <div class="margin-left-largest  margin-top-large margin-bottom-large">
+          <div class="comm-description">
+            <p>
+              {{committee.committee.ranking_member_id}}
+            </p>
+            <div class="align-right pointer" ng-click="toggleDescription($index)">
+              Less
+            </div>
+          </div>
+          <div class="comm-chair">
+            {{committee.chair.first_name}} {{committee.chair.last_name}}
+          </div>
+          <div class="comm-ranking">
+            {{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}
+          </div>
         </div>
 
       </div>
