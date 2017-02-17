@@ -1,5 +1,9 @@
 /*FRAMEWORK CSS*/
 
+body {
+    background: #f2f2f2;
+}
+
 .custom-container {
     margin-right: auto;
     margin-left: auto;
@@ -52,10 +56,6 @@ p {
     font-family: 'Fauna One', serif;
 }
 
-.bold {
-    font-weight: bold;
-}
-
 
 /*TYPOGRAPHY*/
 
@@ -95,6 +95,14 @@ h1::first-letter {
     font-size: 125%;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.text-shadow {
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
 
 /*COLORS - Pallette from https://color.adobe.com/28X-Presidential-Poster-color-theme-7962511*/
 
@@ -124,6 +132,38 @@ h1::first-letter {
 
 .white {
     background-color: #ffffff;
+}
+
+
+/*HEADER*/
+
+.header-bg {
+    height: 560px;
+    background: url("/app/assets/congressbuilding.jpg");
+    background-size: cover;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    opacity: 0.95;
+}
+
+.align-center-hor-ver {
+    width: 65%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.quote-text {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.quote-name {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 
@@ -164,26 +204,15 @@ h1::first-letter {
     z-index: 9999;
 }
 
+
 /*BADGES*/
-.badge-holder{
+
+.badge-holder {
     height: 25px;
 }
 
 
 /*CUSTOM TWEET BUTTON*/
-
-body {
-    background: #f2f2f2;
-    color: #555;
-}
-
-p {
-    line-height: 1.6;
-}
-
-.custom-login-button {
-    margin-top: 52px;
-}
 
 .custom-login-button a {
     position: relative;
@@ -588,6 +617,10 @@ p {
 
 .margin-bottom-immense {
     margin-bottom: 30px;
+}
+
+.margin-bottom-gargantuan {
+    margin-bottom: 40px;
 }
 
 .margin-left-tiny {

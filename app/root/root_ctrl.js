@@ -37,6 +37,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
     }
 
     $scope.loginToTwitter = function() {
+        console.log("+++ 40 root_ctrl.js Here")
         rootServices.loginToTwitter()
             .then(function(response) {
                 if (response.data.requestToken) {
