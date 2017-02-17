@@ -57,13 +57,9 @@
 
 <body ng-controller="appCtrl">
   
-  <div class="col-md-offset-3 col-md-6 alert-modal-position">
-    <div uib-alert ng-repeat="alt in alert.alerts" ng-class="'alert-' + (alt.type)" close="alert.closeAlert($index)" dismiss-on-timeout="2000">{{alt.message}}</div>
-  </div>
-
   <nav class="navbar navbar-default" id="navbar" role="navigation">
     <div class="container-fluid dark-blue white-text">
-      <div class="col-sm-16">
+      <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
           <div class="col-sm-offset-2 col-sm-1">
             <img class="seal" src="/app/assets/seal.png"></img>
@@ -118,11 +114,13 @@
   <div class="custom-container" ng-controller="rootController">
     <ui-view></ui-view>
   </div>
-  
+
   <div class="footer dark-blue">
     <div class="col-md-offset-2 col-md-6 margin-top-largest white-text roboto-font">Reach The Hill - Beta</div>
     <div class="col-md-2 margin-top-largest padding-right-large white-text roboto-font align-right">Copyright &#xA9; {{currentYear}}</div>
   </div>
+
+
 
 </body>
 

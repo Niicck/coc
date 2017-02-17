@@ -14,8 +14,9 @@
   </div>
   <!-- body -->
   <div ng-repeat="committee in committeesSelectedData">
-    <div>
-      <div class="row comm-header">
+    <div name="committee-section">
+      
+      <div class="row comm-header" ng-click="toggleCommSection($index)">
         <div class="margin-left-largest">
           <div class="col-sm-11 comm-header-section">
             <p>
@@ -23,14 +24,17 @@
             </p>
           </div>
           <div class="col-sm-1 comm-header-section">
-            <i class="fa fa-caret-right fa-2x comm-carat" aria-hidden="true"></i>
-            <i class="fa fa-caret-down fa-2x comm-carat" aria-hidden="true"></i>
+            <i class="fa fa-caret-right fa-2x comm-carat" aria-hidden="true" ng-show="openCommSection !== $index"></i>
+            <i class="fa fa-caret-down fa-2x comm-carat" aria-hidden="true" ng-show="openCommSection === $index"></i>
           </div>
         </div>
       </div>
-      <div class="comm-data">
+
+      <div class="comm-data" ng-show="openCommSection === $index">
         <div class="comm-description">
-          {{committee.committee.ranking_member_id}}
+          <p>
+            {{committee.committee.ranking_member_id}}
+          </p>
         </div>
         <div class="comm-chair">
           {{committee.chair.first_name}} {{committee.chair.last_name}}

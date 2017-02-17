@@ -29,10 +29,10 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
 
     $scope.selectHouse();
 
-
-    // $scope.openCommSection = function(index) {
-    //     console.log("+++ 34 root_ctrl.js index: ", index)
-    // }
+    $scope.openCommSection = 0;
+    $scope.toggleCommSection = function(index) {
+        $scope.openCommSection = index;
+    }
 
 
 
