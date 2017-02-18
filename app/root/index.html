@@ -1,23 +1,22 @@
 <div class="main-section">
-<!-- Select chamber Buttons -->
+  <!-- Select chamber Buttons -->
   <div class="row align-center margin-bottom-large">
     <div class="col-md-12">
       <div class="col-sm-6">
         <button class="btn btn-block btn-lg" ng-click="selectHouse()" ng-class="houseSelectedClass">
-            House
+          House
         </button>
       </div>
       <div class="col-sm-6">
         <button class="btn btn-block btn-lg" ng-click="selectSenate()" ng-class="senateSelectedClass">
-            Senate
+          Senate
         </button>
-          </div>
+      </div>
     </div>
   </div>
   <!-- body -->
   <div ng-repeat="committee in committeesSelectedData">
     <div name="committee-section">
-      
       <div class="row comm-header" ng-click="toggleCommSection($index)">
         <div class="margin-left-largest">
           <div class="col-sm-offset-1 col-sm-9 comm-header-section">
@@ -31,30 +30,30 @@
           </div>
         </div>
       </div>
-
       <div class="row comm-data" ng-show="commSection === $index">
         <div>
           <div class="comm-description">
             <div class="margin-left-gargantuan margin-right-gargantuan margin-bottom-gargantuan" ng-hide="showDetails">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare interdum varius. Donec laoreet augue ut mattis sagittis. Curabitur vel molestie lectus. Donec in justo at purus facilisis sodales. Aliquam vel dui in nibh venenatis faucibus et ut nisl. Sed faucibus porta metus, vel scelerisque magna elementum ut. Fusce porttitor nunc eu arcu aliquam faucibus. Duis placerat ipsum non faucibus suscipit. Donec pharetra nunc vitae sollicitudin commodo. 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare interdum varius. Donec laoreet augue ut mattis sagittis. Curabitur vel molestie lectus. Donec in justo at purus facilisis sodales. Aliquam vel dui in nibh venenatis faucibus et ut nisl. Sed faucibus porta metus, vel scelerisque magna elementum ut. Fusce porttitor nunc eu arcu aliquam faucibus. Duis placerat ipsum non faucibus suscipit. Donec pharetra nunc vitae sollicitudin commodo.
               </p>
             </div>
           </div>
           <div class="row margin-bottom-large">
             <div class="col-sm-12">
               <div class="margin-right-largest">
-              <h3 class="margin-right-largest align-right pointer" ng-click="showDetails = !showDetails">
+                <h3 class="margin-right-largest align-right pointer" ng-click="showDetails = !showDetails">
                 Less
               </h3>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="margin-left-gargantuan margin-right-immense margin-bottom-largest">
-          <!-- Chair Member Section -->
-          <div ng-include src="'/app/root/chair.html'"></div>
-          <!-- Ranking Member Section -->
-          <div ng-include src="'/app/root/member.html'"></div>
+          <div class="margin-left-gargantuan margin-right-immense margin-bottom-largest">
+            <!-- Chair Member Section -->
+            <div ng-include src="'/app/root/chair.html'"></div>
+            <!-- Ranking Member Section -->
+            <div ng-include src="'/app/root/member.html'"></div>
+          </div>
         </div>
       </div>
       <div class="separator"></div>
