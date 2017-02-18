@@ -39,10 +39,6 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
         };
     }
 
-    $scope.toggleDescription = function(index) {
-        console.log("+++ 39 root_ctrl.js toggleDescription")
-    }
-
 
 
 

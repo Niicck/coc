@@ -1,0 +1,91 @@
+<div class="member-holder margin-top-large" ng-show="committee.chair.twitter_account">
+  <div class="margin-large margin-large">
+    <div class="comm-chair">
+      <div class=" comm-chair-holder">
+        <div class="col-sm-9">
+          <h2 class="member-header">
+            CHAIR
+          </h2>
+          <h3 class="bold">
+            {{committee.chair.first_name}} {{committee.chair.last_name}} ({{committee.chair.state}} - {{committee.chair.party}}) 
+          </h3>
+        </div>
+        <div class="col-sm-3">
+          <div class=" align-right margin-right-small">
+            <h3>
+              Less
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="row comm-ranking-holder">
+        <div class="col-sm-7">
+          <div class="margin-left-large">
+            <h3>
+              Next Election: {{committee.chair.next_election}} 
+            </h3>
+            <h3>
+              Missed Vote %: {{committee.chair.missed_votes_pct}}%
+            </h3>
+            <h3>
+              Votes with Party: {{committee.chair.votes_with_party_pct}}%
+            </h3>
+          </div>
+        </div>
+        <div class="col-sm-5 ">
+          <div class="social-button-holder">
+            <div class="col-sm-offset-4 col-sm-4">
+              <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
+                <img class="social-button margin-left-largest" src="/app/assets/tw.png"></img>
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a class="align-right" href="http://facebook.com/{{committee.chair.facebook_id}}" target="_blank">
+                <img class="social-button" src="/app/assets/fb.png"></img>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div>
+          <div class="col-sm-1">
+            <div class="margin-left-large margin-top-largest">
+              <img src="https://twitter.com/favicons/favicon.ico">
+            </div>
+          </div>
+          <div class="col-sm-11">
+            <h2 class="tweet-box-header">
+              Tweet the Committee Chair
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="tweet-box-holder">
+        <div class="row margin-left-large margin-top-gargantuan margin-right-large">
+          <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.chair.message""></textarea>
+        </div>
+        <div class="row margin-left-small margin-right-small">
+          <div class="col-md-12 margin-top-large">
+            <p class="align-right">
+              {{140-committee.ranking_member.message.length}} characters left
+            </p>
+            <div class="custom-login-button align-right margin-top-small" ng-show="userData.signedIn">
+              <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.ranking_member.message, committee.ranking_member.twitter_account, 'ranking_member', $index)">
+                <i class="btn-icon"></i>
+                <span class="btn-text">Tweet</span>
+              </a>
+            </div>
+            <div class="custom-login-button align-right margin-top-small" ng-show="!userData.signedIn">
+              <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
+                <i class="btn-icon"></i>
+                <span class="btn-text">Login</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

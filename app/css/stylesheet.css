@@ -1,5 +1,9 @@
 /*FRAMEWORK CSS*/
 
+body{
+    background-color: #f7f7f7;
+}
+
 .custom-container {
     margin-right: auto;
     margin-left: auto;
@@ -208,25 +212,32 @@ h1::first-letter {
     font-weight: bold;
 }
 
+.member-header {
+    color: #f9d57d;
+}
+
 .comm-header-section .comm-carat {
     display: table-cell;
     margin: 0;
     vertical-align: middle;
 }
 
-.comm-description {
-    font-size: 20px;
+.comm-description p {
+    font-size: 25px;
 }
 
 .member-holder {
     border: 1px solid black;
+    background-color: white;
 }
 
+.tweet-box-header{
+    color: #1e4e90;
+}
 .tweet-box {
     border: 1px solid black;
 }
 
-.social-button-holder {}
 
 .social-button {
     margin-top: 60px;
@@ -234,9 +245,11 @@ h1::first-letter {
 }
 
 .text-area {
+    border: 1px solid black;
     height: 75px;
-    width: 100%
+    width: 100%;
     overflow: hidden;
+    resize: none;
 }
 
 .pointer {
@@ -247,12 +260,6 @@ h1::first-letter {
     height: 1px;
 }
 
-
-/*BADGES*/
-
-.badge-holder {
-    height: 25px;
-}
 
 
 /*CUSTOM TWEET BUTTON*/
