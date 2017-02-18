@@ -23,7 +23,7 @@ body{
 
 @media (min-width:1450px) {
     .custom-container {
-        width: 1350px
+        width: 1200px
     }
 }
 
@@ -181,13 +181,13 @@ h1::first-letter {
 
 .quote-text {
     display: block;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 .quote-name {
     display: block;
-    font-size: 22px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -222,6 +222,11 @@ h1::first-letter {
     vertical-align: middle;
 }
 
+.comm-description{
+    display: table;
+    background-color: #d3d3d3;
+}
+
 .comm-description p {
     font-size: 25px;
 }
@@ -250,6 +255,7 @@ h1::first-letter {
     width: 100%;
     overflow: hidden;
     resize: none;
+    font-size: 24px;
 }
 
 .pointer {

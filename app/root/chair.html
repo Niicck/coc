@@ -7,7 +7,15 @@
             CHAIR
           </h2>
           <h3 class="bold">
-            {{committee.chair.first_name}} {{committee.chair.last_name}} ({{committee.chair.state}} - {{committee.chair.party}}) 
+            <span class="bold">
+              {{committee.chair.first_name}} {{committee.chair.last_name}} ({{committee.chair.state}} - 
+            </span>
+            <span ng-show="committee.chair.party === 'R'">
+              Republican)
+            </span>
+            <span ng-show="committee.chair.party === 'D'">
+              Democrat)
+            </span>
           </h3>
         </div>
         <div class="col-sm-3">
@@ -64,15 +72,15 @@
       </div>
       <div class="tweet-box-holder">
         <div class="row margin-left-large margin-top-gargantuan margin-right-large">
-          <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.chair.message""></textarea>
+          <textarea class="col-md-12 text-area" maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.chair.message""></textarea>
         </div>
         <div class="row margin-left-small margin-right-small">
           <div class="col-md-12 margin-top-large">
             <p class="align-right">
-              {{140-committee.ranking_member.message.length}} characters left
+              {{140-committee.chair.message.length}} characters left
             </p>
             <div class="custom-login-button align-right margin-top-small" ng-show="userData.signedIn">
-              <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.ranking_member.message, committee.ranking_member.twitter_account, 'ranking_member', $index)">
+              <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.chair.message, committee.chair.twitter_account, 'chair', $index)">
                 <i class="btn-icon"></i>
                 <span class="btn-text">Tweet</span>
               </a>

@@ -4,11 +4,20 @@
       <div class=" comm-chair-holder">
         <div class="col-sm-9">
           <h2 class="member-header">
-            CHAIR
+            RANKING MEMBER
           </h2>
           <h3 class="bold">
-            {{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}} ({{committee.ranking_member.state}} - {{committee.ranking_member.party}}) 
+            <span class="bold">
+              {{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}} ({{committee.ranking_member.state}} - 
+            </span>
+            <span ng-show="committee.ranking_member.party === 'R'">
+              Republican)
+            </span>
+            <span ng-show="committee.ranking_member.party === 'D'">
+              Democrat)
+            </span>
           </h3>
+          
         </div>
         <div class="col-sm-3">
           <div class=" align-right margin-right-small">
@@ -57,14 +66,14 @@
           </div>
           <div class="col-sm-11">
             <h2 class="tweet-box-header">
-              Tweet the Committee Chair
+              Tweet the Ranking Member
             </h2>
           </div>
         </div>
       </div>
       <div class="tweet-box-holder">
         <div class="row margin-left-large margin-top-gargantuan margin-right-large">
-          <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.ranking_member.message""></textarea>
+          <textarea class="col-md-12 text-area" maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.ranking_member.message""></textarea>
         </div>
         <div class="row margin-left-small margin-right-small">
           <div class="col-md-12 margin-top-large">

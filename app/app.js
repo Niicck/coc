@@ -9,7 +9,7 @@ var app = angular.module('app', [
 
 var sharedDirectives = angular.module('sharedDirectives', []);
 
-app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
+app.controller('appCtrl', function($scope, $rootScope, $window, lodash, alert, confirm, rootServices) {
     $rootScope.serverUrl = 'http://localhost:8080';
     // $rootScope.serverUrl = 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080';
     // $rootScope.serverUrl = 'http://www.reachthehill.org';
@@ -21,7 +21,6 @@ app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
 
 
     $scope.loginToTwitter = function() {
-        console.log("+++ 40 root_ctrl.js loginToTwitter")
         rootServices.loginToTwitter()
             .then(function(response) {
                 if (response.data.requestToken) {
@@ -48,6 +47,13 @@ app.controller('appCtrl', function($scope, $rootScope, lodash, alert, confirm) {
         $scope.confirm.initialize('Are you sure you want to logout?', onYes);
     }
 })
+
+var getTwitterData = function() {
+    rootServices.userData()
+        .then(function(twitterData) {
+            $rootScope.userData = twitterData.data.twitterData;
+        })
+}
 
 //Main route serving site template
 app.config(function($stateProvider, $urlRouterProvider) {
