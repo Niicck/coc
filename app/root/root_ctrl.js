@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('rootController', function($scope, $rootScope, $window, rootServices, houseCommittees, senateCommittees, senateServices, houseServices) {
+app.controller('rootController', function($scope, $rootScope, $window, $location, $anchorScroll, rootServices, houseCommittees, senateCommittees, senateServices, houseServices) {
 
     $scope.senate = senateServices;
     $scope.house = houseServices;
@@ -34,12 +34,16 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
     $scope.toggleCommSection = function(index) {
         if ($scope.commSection === index) {
             $scope.commSection = null;
-        }else{
+        } else {
             $scope.commSection = index;
+            $scope.scrollTo(index);
         };
     }
 
-
+    $scope.scrollTo = function(index) {
+        $location.hash(index);
+        $anchorScroll();
+    }
 
 
 

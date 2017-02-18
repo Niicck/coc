@@ -16,7 +16,7 @@
   </div>
   <!-- body -->
   <div ng-repeat="committee in committeesSelectedData">
-    <div name="committee-section">
+    <div name="committee-section" id="{{$index}}">
       <div class="row comm-header" ng-click="toggleCommSection($index)">
         <div class="margin-left-largest">
           <div class="col-sm-offset-1 col-sm-9 comm-header-section">
