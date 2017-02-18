@@ -16,6 +16,7 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
         $scope.senateSelected = false;
         $scope.houseSelectedClass = "btn-primary";
         $scope.senateSelectedClass = "btn-default";
+        $scope.commSection = 0;
     }
 
     $scope.selectSenate = function() {
@@ -25,14 +26,17 @@ app.controller('rootController', function($scope, $rootScope, $window, rootServi
         $scope.senateSelected = true;
         $scope.houseSelectedClass = "btn-default";
         $scope.senateSelectedClass = "btn-primary";
+        $scope.commSection = 0;
     }
 
     $scope.selectHouse();
 
-    $scope.commSection = 0;
-    
     $scope.toggleCommSection = function(index) {
-        $scope.commSection = index;
+        if ($scope.commSection === index) {
+            $scope.commSection = null;
+        }else{
+            $scope.commSection = index;
+        };
     }
 
     $scope.toggleDescription = function(index) {

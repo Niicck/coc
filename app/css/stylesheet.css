@@ -36,6 +36,7 @@
 .seal {
     width: 50px;
     height: 50px;
+    margin-top: 27px;
 }
 
 .footer {
@@ -46,7 +47,7 @@
 .test {
     width: 100%;
     height: 100px;
-    background-color: black; 
+    background-color: black;
 }
 
 
@@ -122,6 +123,10 @@ h1::first-letter {
 
 /*COLORS - Pallette from https://color.adobe.com/28X-Presidential-Poster-color-theme-7962511*/
 
+.hill-blue{
+    background-color: #215493;
+}
+
 .dark-blue {
     background-color: #00314C;
 }
@@ -185,9 +190,8 @@ h1::first-letter {
 
 /*MAIN SECTION*/
 
-
 .comm-header {
-    background-color: gray;
+    background-color: #d3d3d3;
 }
 
 .comm-header-section {
@@ -195,13 +199,12 @@ h1::first-letter {
     height: 200px;
 }
 
-.comm-header-section p {
-    color: orange;
+.comm-header-section h1 {
+    color: #820c06;
     display: table-cell;
     margin: 0;
     vertical-align: middle;
     margin-left: 30px;
-    font-size: 30px;
     font-weight: bold;
 }
 
@@ -215,14 +218,33 @@ h1::first-letter {
     font-size: 20px;
 }
 
+.member-holder {
+    border: 1px solid black;
+}
+
+.tweet-box {
+    border: 1px solid black;
+}
+
+.social-button-holder {}
+
+.social-button {
+    margin-top: 60px;
+    height: 80px;
+}
+
 .text-area {
     height: 75px;
-    ;
-    overflow: visible;
+    width: 100%
+    overflow: hidden;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+.separator{
+    height: 1px;
 }
 
 
@@ -552,6 +574,10 @@ h1::first-letter {
     margin: 25px;
 }
 
+.margin-gargantuan {
+    margin: 40px;
+}
+
 .margin-immense {
     margin: 30px;
 }
@@ -584,6 +610,10 @@ h1::first-letter {
     margin-top: 30px;
 }
 
+.margin-top-gargantuan {
+    margin-top: 40px;
+}
+
 .margin-right-tiny {
     margin-right: 3px;
 }
@@ -610,6 +640,10 @@ h1::first-letter {
 
 .margin-right-immense {
     margin-right: 30px;
+}
+
+.margin-right-gargantuan {
+    margin-right: 40px;
 }
 
 .margin-bottom-tiny {
@@ -670,6 +704,10 @@ h1::first-letter {
 
 .margin-left-immense {
     margin-left: 30px;
+}
+
+.margin-left-gargantuan {
+    margin-left: 40px;
 }
 
 .header-margins {

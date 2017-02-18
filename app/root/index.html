@@ -2,14 +2,16 @@
 <!-- Select chamber Buttons -->
   <div class="row align-center margin-bottom-large">
     <div class="col-md-12">
-      <div class="btn-group">
-        <button class="btn" ng-click="selectHouse()" ng-class="houseSelectedClass">
+      <div class="col-sm-6">
+        <button class="btn btn-block btn-lg" ng-click="selectHouse()" ng-class="houseSelectedClass">
             House
         </button>
-        <button class="btn" ng-click="selectSenate()" ng-class="senateSelectedClass">
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-block btn-lg" ng-click="selectSenate()" ng-class="senateSelectedClass">
             Senate
         </button>
-      </div>
+          </div>
     </div>
   </div>
   <!-- body -->
@@ -18,37 +20,113 @@
       
       <div class="row comm-header" ng-click="toggleCommSection($index)">
         <div class="margin-left-largest">
-          <div class="col-sm-11 comm-header-section">
-            <p>
+          <div class="col-sm-offset-1 col-sm-9 comm-header-section">
+            <h1>
               {{committee.committee.name}}
-            </p>
+            </h1>
           </div>
-          <div class="col-sm-1 comm-header-section">
-            <i class="fa fa-caret-right fa-2x comm-carat" aria-hidden="true" ng-show="commSection !== $index"></i>
-            <i class="fa fa-caret-down fa-2x comm-carat" aria-hidden="true" ng-show="commSection === $index"></i>
+          <div class="col-sm-2 comm-header-section">
+            <i class="fa fa-caret-right fa-4x comm-carat" aria-hidden="true" ng-show="commSection !== $index"></i>
+            <i class="fa fa-caret-down fa-4x comm-carat" aria-hidden="true" ng-show="commSection === $index"></i>
           </div>
         </div>
       </div>
 
       <div class="comm-data" ng-show="commSection === $index">
-        <div class="margin-left-largest  margin-top-large margin-bottom-large">
+        <div class="margin-gargantuan">
           <div class="comm-description">
             <p>
-              {{committee.committee.ranking_member_id}}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ornare interdum varius. Donec laoreet augue ut mattis sagittis. Curabitur vel molestie lectus. Donec in justo at purus facilisis sodales. Aliquam vel dui in nibh venenatis faucibus et ut nisl. Sed faucibus porta metus, vel scelerisque magna elementum ut. Fusce porttitor nunc eu arcu aliquam faucibus. Duis placerat ipsum non faucibus suscipit. Donec pharetra nunc vitae sollicitudin commodo. 
             </p>
             <div class="align-right pointer" ng-click="toggleDescription($index)">
               Less
             </div>
           </div>
-          <div class="comm-chair">
-            {{committee.chair.first_name}} {{committee.chair.last_name}}
+          <div class="member-holder margin-top-large">
+            <div class="margin-large margin-large">
+              <div class="comm-chair">
+                <div class="row comm-chair-holder">
+                  <div class="col-sm-10">
+                    <h2>
+                      CHAIR
+                    </h2>
+                    <h3 class="bold">
+                      {{committee.chair.first_name}} {{committee.chair.last_name}} ({{committee.chair.state}} - {{committee.chair.party}}) 
+                    </h3>
+                  </div>
+                  <div class="col-sm-2">
+                    <h3>
+                      Less
+                    </h3>
+                  </div>
+                </div>
+                <div class="row comm-ranking-holder">
+                  <div class="col-sm-7">
+                    <h3>
+                      Next Election: {{committee.chair.next_election}} 
+                    </h3>
+                    <h3>
+                      Missed Vote %: {{committee.chair.missed_votes_pct}}%
+                    </h3>
+                    <h3>
+                      Votes with Party: {{committee.chair.votes_with_party_pct}}%
+                    </h3>
+                  </div>
+                  <div class="col-sm-5 ">
+                    <div class="social-button-holder">
+                      <div class="col-sm-offset-4 col-sm-4">
+                        <a href="http://twitter.com/{{committee.chair.twitter_account}}" target="_blank">
+                          <img class="social-button" src="/app/assets/tw.png"></img>
+                        </a>
+                      </div>
+                      <div class="col-sm-4">
+                        <a class="align-right" href="http://facebook.com/{{committee.chair.facebook_id}}" target="_blank">
+                          <img class="social-button" src="/app/assets/fb.png"></img>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tweet-box-holder">
+                  <div class="row margin-left-large margin-top-gargantuan margin-right-large tweet-box">
+                    <textarea class="col-md-12 text-area" autofocus maxlength="140" rows="5" cols="20" ng-trim="false" ng-model="committee.ranking_member.message" ng-disabled="!userData.signedIn"></textarea>
+                  </div>
+                  <div class="row margin-left-gargantuan margin-right-gargantuan">
+                    <div class="col-md-12 margin-top-large">
+                      <p class="align-right">
+                        {{140-committee.ranking_member.message.length}} characters left
+                      </p>
+                      <div class="custom-login-button align-right margin-top-small" ng-show="userData.signedIn">
+                        <a alt="Tweet this message" class="pointer" ng-click="sendTweet(committee.ranking_member.message, committee.ranking_member.twitter_account, 'ranking_member', $index)">
+                          <i class="btn-icon"></i>
+                          <span class="btn-text">Tweet</span>
+                        </a>
+                      </div>
+                      <div class="custom-login-button align-right margin-top-small" ng-show="!userData.signedIn">
+                        <a alt="Login to Twitter" class="pointer" ng-click="loginToTwitter();">
+                          <i class="btn-icon"></i>
+                          <span class="btn-text">Login</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="comm-ranking">
-            {{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}
+
+          <div class="member-holder margin-top-large">
+            <div class="margin-large margin-large">
+              <div class="comm-ranking">
+                {{committee.ranking_member.first_name}} {{committee.ranking_member.last_name}}
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
+      <div class="separator"></div>
     </div>
   </div>
 </div>
