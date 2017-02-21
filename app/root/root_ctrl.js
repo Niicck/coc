@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('rootController', function($scope, $rootScope, $window, $location, $anchorScroll, rootServices, houseCommittees, senateCommittees, senateServices, houseServices) {
+app.controller('rootController', function($scope, $rootScope, $window, $document, rootServices, $timeout, houseCommittees, senateCommittees, senateServices, houseServices) {
 
     $scope.senate = senateServices;
     $scope.house = houseServices;
@@ -41,11 +41,12 @@ app.controller('rootController', function($scope, $rootScope, $window, $location
     }
 
     $scope.scrollTo = function(index) {
-        $location.hash(index);
-        $anchorScroll();
+        $timeout(function() {
+            var duration = 1000;
+            var section = angular.element(document.getElementById(index));
+            $document.scrollToElement(section, 2, duration)
+        }, 300)
     }
-
-
 
     var getTwitterData = function() {
         rootServices.userData()

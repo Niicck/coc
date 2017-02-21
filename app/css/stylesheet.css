@@ -1,6 +1,6 @@
 /*FRAMEWORK CSS*/
 
-body{
+body {
     background-color: #f7f7f7;
 }
 
@@ -127,7 +127,7 @@ h1::first-letter {
 
 /*COLORS - Pallette from https://color.adobe.com/28X-Presidential-Poster-color-theme-7962511*/
 
-.hill-blue{
+.hill-blue {
     background-color: #215493;
 }
 
@@ -222,7 +222,7 @@ h1::first-letter {
     vertical-align: middle;
 }
 
-.comm-description{
+.comm-description {
     display: table;
     background-color: #d3d3d3;
 }
@@ -236,13 +236,13 @@ h1::first-letter {
     background-color: white;
 }
 
-.tweet-box-header{
+.tweet-box-header {
     color: #1e4e90;
 }
+
 .tweet-box {
     border: 1px solid black;
 }
-
 
 .social-button {
     margin-top: 60px;
@@ -262,10 +262,21 @@ h1::first-letter {
     cursor: pointer;
 }
 
-.separator{
+.separator {
     height: 3px;
 }
 
+
+/*ANIMATION*/
+
+.animate-show-hide.ng-hide {
+    opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+    transition: all linear 0.25s;
+}
 
 
 /*CUSTOM TWEET BUTTON*/

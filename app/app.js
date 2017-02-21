@@ -4,7 +4,8 @@ var app = angular.module('app', [
     'ngLodash',
     'ngAnimate',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'duScroll'
 ]);
 
 var sharedDirectives = angular.module('sharedDirectives', []);

@@ -25,12 +25,12 @@
             </h1>
           </div>
           <div class="col-sm-2 comm-header-section">
-            <i class="fa fa-caret-right fa-4x comm-carat" aria-hidden="true" ng-show="commSection !== $index"></i>
+            <i class="fa fa-caret-right fa-4x comm-carat" aria-hidden="true" ng-show="commSection !== $index" ></i>
             <i class="fa fa-caret-down fa-4x comm-carat" aria-hidden="true" ng-show="commSection === $index"></i>
           </div>
         </div>
       </div>
-      <div class="row comm-data" ng-show="commSection === $index">
+      <div class="row comm-data animate-show-hide" ng-show="commSection === $index" animate-show-hide>
         <div>
           <div class="comm-description">
             <div class="margin-left-gargantuan margin-right-gargantuan margin-bottom-gargantuan" ng-hide="showDetails">
