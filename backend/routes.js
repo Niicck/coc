@@ -12,7 +12,7 @@ var twitter = new twitterAPI({
     // callback: 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080/twitterAuthenticated'
     callback: secrets.address + '/twitterAuthenticated'
     // callback: 'http://www.reachthehill.org/twitterAuthenticated'
-    
+
 });
 console.log("+++ 15 routes.js twitter.callback: ", twitter.callback)
 //Routes
@@ -62,6 +62,7 @@ router.get('/twitterlogin', function(request, response) {
                     };
                     request.session.test = "test";
                     request.session.save();
+                    console.log("~~~~~ /twitterlogin the entire request object", require('util').inspect(request.session,null,null))
                     console.log("+++ 65 routes.js request.session.save: ", request.session.save)
                     // response.redirect("https://twitter.com/oauth/authorize?oauth_token="+request.session.twitterRequest.twitterRequestToken);
                     response.status(200).json({ "requestToken": requestToken, "requestTokenSecret": requestTokenSecret, "results": results })
@@ -99,13 +100,16 @@ router.get('/twitterdata', function(request, response) {
 //Send tweet route
 router.post('/sendTweet', function(request, response) {
     console.log("+++ 93 routes.js /sendTweet")
+    console.log("~~~~~ /sendTweet: the entire request object", require('util').inspect(request.session,null,null))
     twitter.statuses("update", { status: request.body.tweet },
         request.session.twitterAccess.accessToken,
         request.session.twitterAccess.accessTokenSecret,
         function(error, data, res) {
             if (error) {
+                console.log("~~~~~ everything broke", error)
                 response.status(error.statusCode).send(error)
             } else {
+                console.log("~~~~~ your tweet was sent")
                 response.status(200).send(data)
             }
         }
