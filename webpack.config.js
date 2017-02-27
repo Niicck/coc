@@ -11,7 +11,7 @@ Any changes made in app/app.js won't automatically be reflected in /bin/bundle.j
 To make that happen, you need to run the command "webpack" on the command line. I've included "webpack" in your package.json. You might need to "npm install".
 Alternatively, you run a webpack server while in development, then all changes will automatically be webpackified. It's like nodemon. Start a webpack server using "npm run webpack-server".
 
-To combine your
+To use in prod, run "npm run start-prod". This will call webpack to compile your front-end files and then start your server with pm2.
 
 Love,
 Nick
