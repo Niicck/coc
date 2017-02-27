@@ -16,11 +16,13 @@ To use in prod, run "npm run start-prod". This will call webpack to compile your
 Love,
 Nick
 **/
-new webpack.EnvironmentPlugin(['NODE_ENV']);
 
 module.exports = {
   entry: [
     __dirname + '/app/main.js'
+  ],
+  plugins: [
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
   output: {
     path: __dirname + '/bin/',

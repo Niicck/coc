@@ -11,10 +11,11 @@ var app = angular.module('app', [
 var sharedDirectives = angular.module('sharedDirectives', []);
 
 app.controller('appCtrl', function($scope, $rootScope, $window, lodash, alert, confirm, rootServices) {
-    $rootScope.serverUrl = 'http://localhost:8080';
-    // $rootScope.serverUrl = 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080';
     if (process.env.NODE_ENV === 'prod') {
       $rootScope.serverUrl = 'http://www.reachthehill.org:8080';
+      // $rootScope.serverUrl = 'http://ec2-52-10-24-27.us-west-2.compute.amazonaws.com:8080';
+    } else {
+      $rootScope.serverUrl = 'http://localhost:8080';
     }
 
     $scope.alert = alert;
