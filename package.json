@@ -4,7 +4,8 @@
   "description": "countoncongress",
   "main": "app/app.js",
   "scripts": {
-    "start-prod": "webpack && pm2 start ecosystem.config.js",
+    "start-prod": "pm2 start ecosystem.config.js",
+    "webpack": "webpack",
     "webpack-server": "webpack --watch",
     "start-dev": "nodemon server.js"
   },
