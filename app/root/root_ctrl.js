@@ -69,7 +69,12 @@ app.controller('rootController', function($scope, $rootScope, $window, $document
             })
     }
 
-    getTwitterData();
+    function thisWork(){
+      console.log("~~~~~ root controller is getting twitterData")
+      getTwitterData();
+    }
+
+    thisWork()
 
     var houseMembersCalculation = function() {
         $scope.houseMissedPercentAvg = 0;
@@ -157,7 +162,7 @@ app.controller('rootController', function($scope, $rootScope, $window, $document
     }
 
 
-    //ONLY RUN THESE WHEN YOU WANT HAVE GATHERED THE NEW CONGRESS DATA FROM PROPUBLICA 
+    //ONLY RUN THESE WHEN YOU WANT HAVE GATHERED THE NEW CONGRESS DATA FROM PROPUBLICA
     // matchCommWithMembers($scope.house);
     // matchCommWithMembers($scope.senate);
 

@@ -27,8 +27,10 @@ app.controller('appCtrl', function($scope, $rootScope, $window, lodash, alert, c
         rootServices.loginToTwitter()
             .then(function(response) {
                 if (response.data.requestToken) {
+                    console.log("~~~~ Now we do have response.data.requestToken.")
                     $window.location.href = 'https://www.twitter.com/oauth/authenticate?oauth_token=' + response.data.requestToken
                 } else {
+                    console.log("~~~~ There is no response.data.requestToken. Calling getTwitterData")
                     getTwitterData();
                 }
             })
@@ -68,6 +70,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'rootController',
             resolve: {
                 twitterData: function(rootServices, $rootScope, $window) {
+                    console.log("~~~~ app.config is getting twitter data")
                     rootServices.userData()
                         .then(function(result) {
                             if(result.data.twitterData){

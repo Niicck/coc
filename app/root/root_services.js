@@ -4,6 +4,7 @@ app.factory('rootServices', function($http, $rootScope) {
     var services = {};
 
     services.userData = function() {
+        console.log("~~~~ calling backend for twitterData")
         return $http.get($rootScope.serverUrl + '/twitterData')
     }
 

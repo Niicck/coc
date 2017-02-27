@@ -4,7 +4,9 @@
   "description": "countoncongress",
   "main": "app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-prod": "webpack && node server.js",
+    "webpack-server": "webpack --watch",
+    "start-dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -30,5 +32,8 @@
     "morgan": "^1.7.0",
     "node-twitter-api": "^1.8.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
   }
 }

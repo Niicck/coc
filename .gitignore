@@ -11,3 +11,6 @@ backend/secrets.js
 ######################
 .DS_Store
 .DS_Store?
+
+# Webpack bundle
+/bin/*
